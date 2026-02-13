@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects | Jumana</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* تنسيق خاص لشبكة "كل المشاريع" لتكون عمودية وليست أفقية */
+        .all-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+            padding-bottom: 50px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+        
+        .page-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">Jumana's</div>
+            <nav>
+                <a href="index.html" data-en="Back to Home" data-ar="الرئيسية">Back to Home</a>
+                <button id="lang-btn">عربي</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container fade-in">
+
+        <h1 class="page-title" data-en="All Projects" data-ar="جميع المشاريع">All Projects</h1>
+        <p class="page-subtitle" data-en="A collection of my work in UI/UX and AI." data-ar="مجموعة من أعمالي في تصميم الواجهات والذكاء الاصطناعي.">A collection of my work in UI/UX and AI.</p>
+
+        <div class="all-projects-grid">
+
+            <article class="project-card">
+                <div class="card-image">
+                    <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJdYkK1OwPMjkAqm7hwgy0GbeuiID3oBStCnR2"
+                        alt="Flomind Quiz App">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">AI Engineering • OCR • Streamlit</span>
+                    <h3 data-en="Flomind Quiz Maker" data-ar="مولد الكويزات الذكي">مولد الكويزات الذكي</h3>
+                    <p data-en="An AI-powered tool generating quiz questions from study materials using OCR and LLMs."
+                        data-ar="أداة ذكية لتوليد أسئلة الكويزات من المواد الدراسية تلقائياً باستخدام تقنيات OCR والذكاء الاصطناعي.">
+                        أداة ذكية لتوليد أسئلة الكويزات من المواد الدراسية تلقائياً باستخدام تقنيات OCR والذكاء
+                        الاصطناعي.
+                    </p>
+                    <a href="https://flomind-quiz.streamlit.app/" target="_blank" class="card-link"
+                        data-en="Try It Now →" data-ar="جرب الأداة →">جرب الأداة →</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="card-image">
+                    <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJhTcc5TiKJQLPFWj8MIByfbCo4sER1tzZY7k6" alt="BookWorm App">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Kids App • UI/UX</span>
+                    <h3 data-en="BookWorm App" data-ar="تطبيق دودة الكتب">BookWorm App</h3>
+                    <p data-en="A dedicated platform for children to foster a love for reading." data-ar="منصة مخصصة للأطفال لتعزيز حب القراءة.">A dedicated platform for children...</p>
+                    <a href="bookworm.html" class="card-link" data-en="View Details →" data-ar="التفاصيل ←">View Details →</a>
+                </div>
+            </article>
+            
+            <article class="project-card">
+                <div class="card-image">
+                    <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJcSeriuCndRt2aZoIPNXw9hxDJrUSsy48BQ5q" alt="Abser App">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Legal Tech • UI/UX</span>
+                    <h3 data-en="Absar App" data-ar="تطبيق أبـصـر">Absar App</h3>
+                    <p data-en="A unified legal platform connecting clients with law firms." data-ar="منصة قانونية موحدة تربط العملاء بمكاتب المحاماة.">A unified legal platform...</p>
+                    <a href="abser.html" class="card-link" data-en="View Details →" data-ar="التفاصيل ←">View Details →</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="card-image">
+                    <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJUEAC6vqxVbyhxDrT2RXQScned17gvt0M6fpI" alt="Terhal App">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Travel • UI/UX</span>
+                    <h3 data-en="Terhal App" data-ar="تطبيق ترحال">Terhal App</h3>
+                    <p data-en="An all-in-one travel planning app offering custom itineraries." data-ar="تطبيق شامل لتخطيط السفر يقدم مسارات مخصصة.">An all-in-one travel planning app...</p>
+                    <a href="terhal.html" class="card-link" data-en="View Details →" data-ar="التفاصيل ←">View Details →</a>
+                </div>
+            </article>
+
+
+            <article class="project-card">
+                <div class="card-image">
+                    <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJCxS4G4hSKWNBJa6zZ7ms03bUxyjdEVokO2FR" alt="Arabah Project">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Smart Mobility • UI/UX</span>
+                    <h3 data-en="Arabah Smart Cart" data-ar="مشروع عربة الذكي">Arabah Smart Cart</h3>
+                    <p data-en="An autonomous smart cart system for the Prophet's Mosque." data-ar="نظام عربات ذكية ذاتية القيادة للمسجد النبوي.">An autonomous smart cart system...</p>
+                    <a href="arabah.html" class="card-link" data-en="View Details →" data-ar="التفاصيل ←">View Details →</a>
+                </div>
+            </article>
+
+            
+            
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Jumana Portfolio.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

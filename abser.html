@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Absar App | Jumana</title>
+    <title>مشروع أبصر | جمانة</title>
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap"
         rel="stylesheet">
@@ -99,14 +99,14 @@
             content: "✔";
             color: var(--absar-green-main);
             position: absolute;
-            left: 0; /* للغة الانجليزية */
+            right: 0; /* التعديل للغة العربية */
             font-weight: bold;
         }
         
-        /* تعديل مكان النقطة للعربية */
-        html[lang="ar"] .content-area li::before {
-            left: auto;
-            right: 0;
+        /* تعديل مكان النقطة للانجليزية */
+        html[lang="en"] .content-area li::before {
+            right: auto;
+            left: 0;
         }
 
         .back-nav {
@@ -125,7 +125,7 @@
 
         .back-link:hover {
             color: var(--absar-green-main);
-            transform: translateX(-5px);
+            transform: translateX(5px);
         }
 
         .gallery-grid {
@@ -149,6 +149,8 @@
              border-radius: 50px;
              font-weight: 700;
              transition: 0.3s;
+             text-decoration: none;
+             display: inline-block;
         }
         .view-behance-btn:hover {
             background: var(--absar-green-main);
@@ -161,10 +163,10 @@
 
     <header>
         <div class="header-inner">
-            <div class="logo">Jumana's</div>
+            <div class="logo">جُــمــانــه</div>
             <nav>
-                <a href="index.html" data-en="Back to Portfolio" data-ar="عودة للبورتفوليو">Back to Portfolio</a>
-                <button id="lang-btn">عربي</button>
+                <a href="index.html" data-en="Back to Portfolio" data-ar="عودة للبورتفوليو">عودة للبورتفوليو</a>
+                <button id="lang-btn">English</button>
             </nav>
         </div>
     </header>
@@ -172,16 +174,15 @@
     <div class="container fade-in">
 
         <div class="back-nav">
-            <a href="index.html" class="back-link">← <span data-en="Back to Home" data-ar="الرئيسية">Back to
-                    Home</span></a>
+            <a href="index.html" class="back-link">→ <span data-en="Back to Home" data-ar="الرئيسية">الرئيسية</span></a>
         </div>
 
         <div class="project-header">
-            <h1 data-en="Abser App" data-ar="تطبيق أبصر">Abser App</h1>
+            <h1 data-en="Abser App" data-ar="تطبيق أبـصـر">تطبيق أبـصـر</h1>
             <div class="project-meta">
-                <span class="meta-tag">Legal Tech</span>
+                <span class="meta-tag">تقنية قانونية</span>
                 <span class="meta-tag">UI/UX</span>
-                <span class="meta-tag">Saudi Law AI</span>
+                <span class="meta-tag">ذكاء اصطناعي للأنظمة السعودية</span>
             </div>
         </div>
 
@@ -192,44 +193,44 @@
 
         <div class="content-area">
 
-            <h2 data-en="Project Overview" data-ar="نظرة عامة">Project Overview</h2>
+            <h2 data-en="Project Overview" data-ar="نظرة عامة">نظرة عامة</h2>
             <p data-en="Absar is a comprehensive legal platform designed for the Kingdom of Saudi Arabia. It bridges the gap between citizens and legal services by providing a unified directory of law firms, a specialized Saudi Legal AI, and management tools for firm owners."
                 data-ar="أبصر هو منصة قانونية شاملة مصممة للمملكة العربية السعودية. يهدف التطبيق لسد الفجوة بين المواطنين والخدمات القانونية من خلال توفير دليل موحد لمكاتب المحاماة، وذكاء اصطناعي متخصص في الأنظمة السعودية، وأدوات إدارة لأصحاب المكاتب.">
-                Absar is a comprehensive legal platform designed for the Kingdom of Saudi Arabia. It bridges the gap between citizens and legal services...
+                أبصر هو منصة قانونية شاملة مصممة للمملكة العربية السعودية. يهدف التطبيق لسد الفجوة بين المواطنين والخدمات القانونية من خلال توفير دليل موحد لمكاتب المحاماة، وذكاء اصطناعي متخصص في الأنظمة السعودية، وأدوات إدارة لأصحاب المكاتب.
             </p>
 
-            <h2 data-en="The Problem" data-ar="المشكلة">The Problem</h2>
+            <h2 data-en="The Problem" data-ar="المشكلة">المشكلة</h2>
             <p data-en="The legal market faces fragmentation. Citizens struggle to find reliable law firms across cities or access past client reviews. Additionally, there is a lack of specialized AI for Saudi laws, difficulty in accessing judicial precedents, and scattered sources for legal research and job advertisements."
                 data-ar="يعاني السوق القانوني من التشتت. يواجه المواطنون صعوبة في العثور على مكاتب محاماة موثوقة في مختلف المدن أو الاطلاع على تقييمات العملاء. بالإضافة إلى ذلك، هناك نقص في الذكاء الاصطناعي المتخصص في القوانين السعودية، وصعوبة في الوصول للسوابق القضائية، وتشتت مصادر الأبحاث وإعلانات الوظائف.">
-                The legal market faces fragmentation. Citizens struggle to find reliable law firms...
+                يعاني السوق القانوني من التشتت. يواجه المواطنون صعوبة في العثور على مكاتب محاماة موثوقة في مختلف المدن أو الاطلاع على تقييمات العملاء. بالإضافة إلى ذلك، هناك نقص في الذكاء الاصطناعي المتخصص في القوانين السعودية، وصعوبة في الوصول للسوابق القضائية، وتشتت مصادر الأبحاث وإعلانات الوظائف.
             </p>
 
-            <h2 data-en="The Solution" data-ar="الحل">The Solution</h2>
+            <h2 data-en="The Solution" data-ar="الحل">الحل</h2>
             <p data-en="Absar creates a unified ecosystem connecting clients, lawyers, and firm owners through innovative features:"
                 data-ar="يقدم أبصر نظاماً بيئياً موحداً يربط العملاء والمحامين وأصحاب المكاتب من خلال ميزات مبتكرة:">
-                Absar creates a unified ecosystem connecting clients, lawyers, and firm owners through innovative features:
+                يقدم أبصر نظاماً بيئياً موحداً يربط العملاء والمحامين وأصحاب المكاتب من خلال ميزات مبتكرة:
             </p>
             
             <ul>
                 <li data-en="<strong>Unified Directory:</strong> Browse law firms by city with real user ratings and reviews."
                     data-ar="<strong>دليل موحد:</strong> تصفح مكاتب المحاماة حسب المدينة مع تقييمات وتعليقات حقيقية.">
-                    <strong>Unified Directory:</strong> Browse law firms by city with real user ratings and reviews.
+                    <strong>دليل موحد:</strong> تصفح مكاتب المحاماة حسب المدينة مع تقييمات وتعليقات حقيقية.
                 </li>
                 <li data-en="<strong>Saudi Legal AI:</strong> An AI assistant specialized in KSA laws and regulations."
                     data-ar="<strong>ذكاء اصطناعي قانوني:</strong> مساعد ذكي متخصص في الأنظمة واللوائح السعودية ومستجداتها.">
-                    <strong>Saudi Legal AI:</strong> An AI assistant specialized in KSA laws and regulations.
+                    <strong>ذكاء اصطناعي قانوني:</strong> مساعد ذكي متخصص في الأنظمة واللوائح السعودية ومستجداتها.
                 </li>
                 <li data-en="<strong>Firm Management:</strong> A dashboard for owners to monitor lawyer performance and case stats."
-                    data-ar="<strong>إدارة المكاتب:</strong> لوحة تحكم للملاك لمراقبة أداء المحامين وإحصائيات القضايا (فوز/خسارة).">
-                    <strong>Firm Management:</strong> A dashboard for owners to monitor lawyer performance.
+                    data-ar="<strong>إدارة المكاتب:</strong> لوحة تحكم للملاك لمراقبة أداء المحامين وإحصائيات القضايا.">
+                    <strong>إدارة المكاتب:</strong> لوحة تحكم للملاك لمراقبة أداء المحامين وإحصائيات القضايا.
                 </li>
                 <li data-en="<strong>Knowledge Hub:</strong> A centralized library for judicial precedents, research papers, and job ads."
                     data-ar="<strong>مركز المعرفة:</strong> مكتبة مركزية للسوابق القضائية، الأبحاث المقسمة، وإعلانات الوظائف المحدثة.">
-                    <strong>Knowledge Hub:</strong> A centralized library for judicial precedents and research.
+                    <strong>مركز المعرفة:</strong> مكتبة مركزية للسوابق القضائية، الأبحاث المقسمة، وإعلانات الوظائف المحدثة.
                 </li>
             </ul>
 
-            <h2 data-en="Design Gallery" data-ar="معرض التصميم">Design Gallery</h2>
+            <h2 data-en="Design Gallery" data-ar="معرض التصميم">معرض التصميم</h2>
             <div class="gallery-grid">
                 <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJTTVJuELWaZ4NyI6QDEfkzFAecl9xXGboHO02"
                     class="gallery-img" alt="Map Search">
@@ -238,9 +239,8 @@
             </div>
 
             <div style="text-align: center; margin-top: 50px;">
-                <a href="https://www.behance.net/gallery/224925643/Abser-" target="_blank" class="view-all-btn"
-                    style="text-decoration: none; display: inline-block;">
-                    <span data-en="View on Behance" data-ar="شاهد المشروع على Behance">View on Behance</span>
+                <a href="https://www.behance.net/gallery/224925643/Abser-" target="_blank" class="view-behance-btn">
+                    <span data-en="View on Behance" data-ar="شاهد المشروع على Behance">شاهد المشروع على Behance</span>
                 </a>
             </div>
 
@@ -249,7 +249,7 @@
     </div>
 
     <footer>
-        <p>© 2026 Jumana Portfolio.</p>
+        <p>© 2026 جمانة - Jumana Portfolio.</p>
     </footer>
 
     <script src="script.js"></script>

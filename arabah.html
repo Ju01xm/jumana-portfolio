@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arabah Project | Jumana</title>
+    <title>مشروع عربة | جمانة</title>
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap"
         rel="stylesheet">
@@ -97,13 +97,14 @@
             content: "✦";
             color: var(--arabah-main);
             position: absolute;
-            left: 0;
+            right: 0; /* التعديل للوضع العربي */
             font-size: 1.2rem;
         }
         
-        html[lang="ar"] .content-area li::before {
-            left: auto;
-            right: 0;
+        /* ضبط أيقونة القائمة عند التحويل للإنجليزي */
+        html[lang="en"] .content-area li::before {
+            right: auto;
+            left: 0;
         }
 
         /* زر العودة */
@@ -123,7 +124,7 @@
 
         .back-link:hover {
             color: var(--arabah-main);
-            transform: translateX(-5px);
+            transform: translateX(5px);
         }
 
         /* معرض الصور */
@@ -144,11 +145,11 @@
              grid-column: span 2;
         }
 
-        /* --- تنسيق الزر الذهبي الجديد --- */
+        /* --- تنسيق الزر الذهبي --- */
         .arabah-proto-btn {
              background: transparent;
-             border: 2px solid var(--arabah-main); /* إطار ذهبي */
-             color: var(--arabah-dark); /* نص بني */
+             border: 2px solid var(--arabah-main);
+             color: var(--arabah-dark);
              padding: 12px 40px;
              border-radius: 50px;
              font-weight: 700;
@@ -159,8 +160,8 @@
         }
         
         .arabah-proto-btn:hover {
-            background: var(--arabah-main); /* خلفية ذهبية عند التحويم */
-            color: white; /* نص أبيض */
+            background: var(--arabah-main);
+            color: white;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(212, 163, 115, 0.4);
         }
@@ -171,10 +172,10 @@
 
     <header>
         <div class="header-inner">
-            <div class="logo">Jumana's</div>
+            <div class="logo">جُــمــانــه</div>
             <nav>
-                <a href="index.html" data-en="Back to Portfolio" data-ar="عودة للبورتفوليو">Back to Portfolio</a>
-                <button id="lang-btn">عربي</button>
+                <a href="index.html" data-en="Back to Portfolio" data-ar="عودة للبورتفوليو">عودة للبورتفوليو</a>
+                <button id="lang-btn">English</button>
             </nav>
         </div>
     </header>
@@ -182,16 +183,15 @@
     <div class="container fade-in">
 
         <div class="back-nav">
-            <a href="index.html" class="back-link">← <span data-en="Back to Home" data-ar="الرئيسية">Back to
-                    Home</span></a>
+            <a href="index.html" class="back-link">→ <span data-en="Back to Home" data-ar="الرئيسية">الرئيسية</span></a>
         </div>
 
         <div class="project-header">
-            <h1 data-en="Arabah Project" data-ar="مشروع عربة">Arabah Project</h1>
+            <h1 data-en="Arabah Project" data-ar="مشروع عربة">مشروع عربة</h1>
             <div class="project-meta">
                 <span class="meta-tag">UI/UX Design</span>
                 <span class="meta-tag">Smart Mobility</span>
-                <span class="meta-tag">Competition Entry</span>
+                <span class="meta-tag">مشروع مسابقة</span>
             </div>
         </div>
 
@@ -201,37 +201,37 @@
 
         <div class="content-area">
 
-            <h2 data-en="Project Concept" data-ar="فكرة المشروع">Project Concept</h2>
-            <p data-en="Arabah is a smart electronic cart control and navigation system for the Prophet's Mosque. It aims to facilitate and organize cart movement through specific paths and stations equipped with AI technologies and advanced sensors to prevent accidents and ensure smooth, safe movement."
-                data-ar="عربة هو نظام تنقل وتحكم كامل بعربات إلكترونية ذكية في المسجد النبوي يهدف إلى تيسير وتنظيم حركة العربات في الحرم، يتكون من مسارات محددة ومحطات خاصة موزعة في أماكن معينة وعربات مزودة بتقنيات الذكاء الاصطناعي وأنظمة استشعار متقدمة لتجنب الحوادث وتوفر حركة سلسة وآمنة.">
-                Arabah is a smart electronic cart control and navigation system for the Prophet's Mosque...
+            <h2 data-en="Project Concept" data-ar="فكرة المشروع">فكرة المشروع</h2>
+            <p data-en="Arabah is a smart electronic cart control and navigation system for the Prophet's Mosque. It aims to facilitate and organize cart movement through AI technologies and sensors."
+                data-ar="عربة هو نظام تنقل وتحكم كامل بعربات إلكترونية ذكية في المسجد النبوي يهدف إلى تيسير وتنظيم حركة العربات في الحرم، يتكون من مسارات محددة ومحطات خاصة وعربات مزودة بتقنيات الذكاء الاصطناعي وأنظمة استشعار متقدمة لتجنب الحوادث وتوفير حركة سلسة وآمنة.">
+                عربة هو نظام تنقل وتحكم كامل بعربات إلكترونية ذكية في المسجد النبوي يهدف إلى تيسير وتنظيم حركة العربات في الحرم، يتكون من مسارات محددة ومحطات خاصة وعربات مزودة بتقنيات الذكاء الاصطناعي وأنظمة استشعار متقدمة لتجنب الحوادث وتوفير حركة سلسة وآمنة.
             </p>
 
-            <h2 data-en="The Problem" data-ar="المشكلة">The Problem</h2>
-            <p data-en="Visitors to the Prophet's Mosque face several difficulties regarding cart transportation, including: collisions due to unorganized movement, reckless speed by some drivers, difficulty obtaining a cart at peak times, and congestion."
-                data-ar="يواجه زوار المسجد النبوي صعوبات عديدة تتعلق بالتنقل باستخدام العربات، منها: تصادم العربات مع بعضها أو مع الزوار، السرعة المتهورة من قبل بعض سائقي العربات، صعوبة الحصول على عربة في الوقت المناسب، وعدم تنظيم حركة العربات مما يسبب ازدحام.">
-                Visitors to the Prophet's Mosque face several difficulties regarding cart transportation...
+            <h2 data-en="The Problem" data-ar="المشكلة">المشكلة</h2>
+            <p data-en="Visitors to the Prophet's Mosque face difficulties regarding cart transportation, including collisions, reckless speed, and congestion."
+                data-ar="يواجه زوار المسجد النبوي صعوبات عديدة تتعلق بالتنقل باستخدام العربات، منها: تصادم العربات مع بعضها أو مع الزوار، السرعة المتهورة من قبل بعض السائقين، وصعوبة الحصول على عربة في الوقت المناسب مما يسبب ازدحاماً غير منظم.">
+                يواجه زوار المسجد النبوي صعوبات عديدة تتعلق بالتنقل باستخدام العربات، منها: تصادم العربات مع بعضها أو مع الزوار، السرعة المتهورة من قبل بعض السائقين، وصعوبة الحصول على عربة في الوقت المناسب مما يسبب ازدحاماً غير منظم.
             </p>
 
-            <h2 data-en="The Solution" data-ar="الحل">The Solution</h2>
-            <p data-en="'Arabah' creates an integrated smart system relying on autonomous electronic carts to organize and facilitate visitor movement inside the Prophet's Mosque:"
+            <h2 data-en="The Solution" data-ar="الحل">الحل</h2>
+            <p data-en="'Arabah' creates an integrated smart system relying on autonomous electronic carts to organize visitor movement:"
                 data-ar="'عربة' هو نظام ذكي متكامل يعتمد على عربات إلكترونية ذاتية القيادة لتنظيم وتيسير تنقل الزوار داخل المسجد النبوي، ويعمل على:">
-                'Arabah' creates an integrated smart system relying on autonomous electronic carts...
+                'عربة' هو نظام ذكي متكامل يعتمد على عربات إلكترونية ذاتية القيادة لتنظيم وتيسير تنقل الزوار داخل المسجد النبوي، ويعمل على:
             </p>
             <ul>
-                <li data-en="Providing smart carts with dedicated paths." data-ar="توفير عربات ذكية وعبر مسارات مخصصة.">Providing smart carts with dedicated paths.</li>
-                <li data-en="Safe communication between carts to avoid accidents." data-ar="التواصل بين العربات لتفادي الحوادث.">Safe communication between carts to avoid accidents.</li>
-                <li data-en="App-based ordering service (English/Arabic)." data-ar="إتاحة خدمة الطلب عبر التطبيق بواجهات عربية وإنجليزية.">App-based ordering service.</li>
-                <li data-en="Organized paths and dedicated stations." data-ar="تنظيم مسارات ومحطات مخصصة للعربات.">Organized paths and dedicated stations.</li>
+                <li data-en="Providing smart carts with dedicated paths." data-ar="توفير عربات ذكية تسير عبر مسارات مخصصة.">توفير عربات ذكية تسير عبر مسارات مخصصة.</li>
+                <li data-en="Safe communication between carts to avoid accidents." data-ar="التواصل بين العربات لتفادي الحوادث وضمان الأمان.">التواصل بين العربات لتفادي الحوادث وضمان الأمان.</li>
+                <li data-en="App-based ordering service (English/Arabic)." data-ar="إتاحة خدمة الطلب عبر التطبيق بواجهات عربية وإنجليزية.">إتاحة خدمة الطلب عبر التطبيق بواجهات عربية وإنجليزية.</li>
+                <li data-en="Organized paths and dedicated stations." data-ar="تنظيم مسارات ومحطات مخصصة للعربات لسهولة الوصول.">تنظيم مسارات ومحطات مخصصة للعربات لسهولة الوصول.</li>
             </ul>
 
-            <h2 data-en="Target Audience" data-ar="الفئة المستهدفة">Target Audience</h2>
+            <h2 data-en="Target Audience" data-ar="الفئة المستهدفة">الفئة المستهدفة</h2>
             <p data-en="The elderly, people with special needs, and visitors with limited mobility inside the Holy Mosque."
-               data-ar="كبار السن، ذوي الاحتياجات الخاصة، والمرضى وذوي القدرة المحدودة في المشي داخل الحرم.">
-               The elderly, people with special needs, and visitors with limited mobility.
+               data-ar="كبار السن، ذوي الاحتياجات الخاصة، والمرضى وذوي القدرة المحدودة على المشي لمسافات طويلة داخل الحرم.">
+               كبار السن، ذوي الاحتياجات الخاصة، والمرضى وذوي القدرة المحدودة على المشي لمسافات طويلة داخل الحرم.
             </p>
 
-            <h2 data-en="Design Gallery" data-ar="معرض التصميم">Design Gallery</h2>
+            <h2 data-en="Design Gallery" data-ar="معرض التصميم">معرض التصميم</h2>
             <div class="gallery-grid">
                 <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJKQQVwG7laUlCrx1Tn2bDW9qcGtQz4ojO0yEh" class="gallery-img" alt="UI Screen 1">
                 <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJgFIvNJo1IyUJ2Mlq8RONKT0DSV5wpvdHCh9W" class="gallery-img" alt="UI Screen 2">
@@ -239,7 +239,7 @@
             
             <div style="text-align: center; margin-top: 50px;">
                 <a href="https://www.figma.com/proto/GOGRuituSUIEBjFOsDziN0/%D8%B9%D8%B1%D8%A8%D8%A9?node-id=3-51&p=f&t=TCQWbr84HMLGzacH-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2" target="_blank" class="arabah-proto-btn">
-                    <span data-en="Try the prototype" data-ar="جرب المشروع">Try the prototype</span>
+                    <span data-en="Try the prototype" data-ar="جرب المشروع">جرب المشروع</span>
                 </a>
             </div>
 
@@ -248,7 +248,7 @@
     </div>
 
     <footer>
-        <p>© 2026 Jumana Portfolio.</p>
+        <p>© 2026 جمانة - Jumana Portfolio.</p>
     </footer>
 
     <script src="script.js"></script>

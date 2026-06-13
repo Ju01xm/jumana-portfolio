@@ -4,11 +4,8 @@
 :root {
     /* خلفية الصفحة والنصوص */
     --bg-main: #FFFCF9;
-    /* أبيض كريمي دافئ */
     --text-color: #4A4A4A;
-    /* رمادي غامق للنصوص */
     --header-text: #5D4E60;
-    /* لون نصوص الهيدر */
 
     /* لوحة ألوان الباستيل (Pastel Palette) */
     --pastel-pink: #FFC8DD;
@@ -18,16 +15,12 @@
 
     /* ألوان خاصة للمشاريع */
     --arabah-main: #D4A373;
-    /* ذهبي لمشروع عربة */
     --arabah-dark: #8D5B2F;
 
     /* الخطوط */
     --font-heading: 'Lora', serif;
-    /* للعناوين الإنجليزية */
     --font-body: 'Nunito', sans-serif;
-    /* للنصوص الإنجليزية */
     --font-arabic: 'IBM Plex Sans Arabic', sans-serif;
-    /* للعربية */
 }
 
 /* إعادة ضبط المتصفح (Reset) */
@@ -44,7 +37,6 @@ body {
     font-family: var(--font-body);
     line-height: 1.8;
     overflow-x: hidden;
-    /* لمنع السكرول العرضي للصفحة */
 }
 
 /* تعيين الخط العربي عند تفعيل اللغة العربية */
@@ -128,12 +120,10 @@ nav a.active {
 
 .top-section {
     display: grid;
-    /* العمود الأول للنصوص، الثاني للصور */
     grid-template-columns: 1.2fr 1fr;
     gap: 60px;
     margin-bottom: 80px;
     align-items: start;
-    /* محاذاة العناصر من الأعلى */
 }
 
 /* =========================================
@@ -153,7 +143,6 @@ nav a.active {
     line-height: 1.2;
 }
 
-/* محاذاة النصوص حسب اللغة */
 html[lang="ar"] .main-title,
 html[lang="ar"] .text-content {
     text-align: right;
@@ -176,7 +165,6 @@ html[lang="en"] .text-content {
     max-width: 100%;
 }
 
-/* حاوية الودجت */
 .info-widgets {
     display: flex;
     flex-direction: column;
@@ -218,25 +206,12 @@ html[lang="en"] .text-content {
     font-weight: 700;
     color: #555;
     background-color: #f0f0f0;
-    /* لون احتياطي */
 }
 
-/* ألوان التاقات */
-.skill-tag.pink {
-    background-color: var(--pastel-pink);
-}
-
-.skill-tag.blue {
-    background-color: var(--pastel-blue);
-}
-
-.skill-tag.purple {
-    background-color: var(--pastel-purple);
-}
-
-.skill-tag.green {
-    background-color: var(--pastel-green);
-}
+.skill-tag.pink { background-color: var(--pastel-pink); }
+.skill-tag.blue { background-color: var(--pastel-blue); }
+.skill-tag.purple { background-color: var(--pastel-purple); }
+.skill-tag.green { background-color: var(--pastel-green); }
 
 /* =========================================
    5. القائمة الجانبية (Sidebar)
@@ -244,9 +219,7 @@ html[lang="en"] .text-content {
 .visual-column {
     display: flex;
     flex-direction: column;
-    /* ترتيب العناصر فوق بعض */
     gap: 20px;
-    /* مسافة بين الاقتباس والصورة */
 }
 
 .quote-box {
@@ -260,7 +233,6 @@ html[lang="en"] .text-content {
     border: 1px dashed var(--pastel-purple);
     text-align: center;
     width: 100%;
-    /* يأخذ عرض العمود كامل */
 }
 
 html[lang="ar"] .quote-box {
@@ -270,7 +242,6 @@ html[lang="ar"] .quote-box {
 .hero-image {
     width: 100%;
     height: 450px;
-    /* ارتفاع الصورة */
     border-radius: 25px;
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -287,44 +258,11 @@ html[lang="ar"] .quote-box {
     transform: scale(1.03);
 }
 
-/* =========================================
-   تحديث التجاوب للجوال
-   ========================================= */
-@media (max-width: 850px) {
-    .top-section {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
-    }
-
-    /* في الجوال: نعكس الترتيب لتظهر الصورة والاقتباس أولاً */
-    .visual-column {
-        order: -1;
-    }
-
-    /* في الجوال: نعكس ترتيب الاقتباس والصورة (الصورة فوق الاقتباس) لشكل أجمل */
-    .visual-column {
-        flex-direction: column-reverse;
-    }
-
-    .hero-image {
-        height: 300px;
-    }
-
-    html[lang="ar"] .main-title,
-    html[lang="ar"] .text-content,
-    html[lang="en"] .main-title,
-    html[lang="en"] .text-content {
-        text-align: center;
-    }
-}
-
-/* تنسيق روابط التواصل داخل صندوق الاقتباس */
 .contact-links {
     display: flex;
     justify-content: center;
-    gap: 15px;      /* مسافة أفقية بين العناصر */
-    row-gap: 15px;  /* مسافة عمودية بين الصفوف (الحل السحري) */
+    gap: 15px;
+    row-gap: 15px;
     margin-top: 15px;
     flex-wrap: wrap;
 }
@@ -355,30 +293,29 @@ html[lang="ar"] .quote-box {
     width: 18px;
     height: 18px;
     fill: currentColor;
-    
 }
 
 /* =========================================
    6. قسم المشاريع (Featured Work & All Projects)
    ========================================= */
-
 .featured-section {
-    /* border-top: 2px dashed #E0E0E0;  <-- هذا السطر تم حذفه */
-    padding-top: 50px;
+    padding-top: 70px; /* تم تعديل المساحة العلوية للترتيب */
+    padding-bottom: 30px;
     width: 100%;
-    position: relative; /* مهم لإضافة الخط الجديد */
+    position: relative; 
 }
-/* --- الخط الفاصل الوردي الجديد --- */
+
+/* الخط الفاصل الوردي */
 .featured-section::before {
     content: "";
     position: absolute;
-    top: 0;
+    top: 15px;
     left: 50%;
-    transform: translateX(-50%); /* لتوسيط الخط تماماً */
-    width: 150px; /* عرض الخط (يمكنك زيادته أو إنقاصه) */
-    height: 4px;  /* سُمك الخط */
-    background-color: var(--pastel-pink); /* اللون الوردي الفاتح */
-    border-radius: 10px; /* حواف دائرية ناعمة */
+    transform: translateX(-50%);
+    width: 150px;
+    height: 4px;
+    background-color: var(--pastel-pink);
+    border-radius: 10px;
 }
 
 .section-title {
@@ -389,42 +326,29 @@ html[lang="ar"] .quote-box {
     color: #333;
 }
 
-/* --------------------------------------
-   أ. حاويات البطاقات (Grid Containers)
--------------------------------------- */
-
-/* 1. حاوية السكرول (للصفحة الرئيسية فقط) */
+/* حاوية الشبكة الأفقية (الصفحة الرئيسية) */
 .projects-grid {
     display: flex;
     gap: 30px;
     overflow-x: auto;
     padding-bottom: 20px;
-    /* إخفاء شريط السكرول */
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* IE */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE */
 }
 
 .projects-grid::-webkit-scrollbar {
-    display: none;
+    display: none; /* Chrome */
 }
 
-/* Chrome */
-
-
-/* 2. حاوية الشبكة (لصفحة كل المشاريع فقط) */
+/* حاوية الشبكة العمودية (صفحة كل المشاريع) */
 .all-projects-grid {
     display: grid;
-    /* هذا يجعل البطاقات تتوزع وتكبر براحتها */
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 40px;
     padding-bottom: 50px;
 }
 
-/* --------------------------------------
-   ب. تنسيق البطاقة الأساسي (مشترك)
--------------------------------------- */
+/* البطاقة الأساسية */
 .project-card {
     background: white;
     border-radius: 16px;
@@ -434,45 +358,37 @@ html[lang="ar"] .quote-box {
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
-    /* ملاحظة: لا نضع أي عرض (width/flex) هنا */
 }
 
-/* --------------------------------------
-   ج. تخصيص العرض حسب المكان (الحل السحري)
--------------------------------------- */
-
-/* 1. إذا كانت البطاقة في الصفحة الرئيسية (داخل .projects-grid) */
-.projects-grid .project-card {
-    /* المعادلة: (100% - مسافة الفراغين) تقسيم 3 */
-    /* نستخدم flex: 0 0 لتثبيت الحجم ومنع التمدد أو الانكماش */
-    flex: 0 0 calc((100% - 60px) / 3);
-    max-width: calc((100% - 60px) / 3);
-
-    /* إصلاح لمتصفح سفاري */
-    width: calc((100% - 60px) / 3);
-}
-
-/* 2. إذا كانت البطاقة في صفحة كل المشاريع (داخل .all-projects-grid) */
-.all-projects-grid .project-card {
-    /* هنا نجعلها مرنة 100% لتملأ خانة الشبكة */
-    width: 100%;
-    max-width: 100%;
-    flex: auto;
-    /* اسمح لها بالتمدد */
-}
-
-/* --------------------------------------
-   د. التنسيقات الداخلية للبطاقة
--------------------------------------- */
 .project-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
 }
 
+/* تخصيص حجم البطاقة في الصفحة الرئيسية */
+.projects-grid .project-card {
+    flex: 0 0 310px; /* العرض المصغر الجديد */
+    max-width: 310px;
+    width: 310px;
+}
+
+/* تخصيص حجم البطاقة في صفحة كل المشاريع */
+.all-projects-grid .project-card {
+    width: 100%;
+    max-width: 100%;
+    flex: auto;
+}
+
+/* الصور داخل البطاقات */
 .card-image {
     height: 220px;
     overflow: hidden;
     background-color: #f9f9f9;
+}
+
+/* تصغير ارتفاع الصورة قليلاً للصفحة الرئيسية فقط لتتناسب مع العرض الجديد */
+.projects-grid .card-image {
+    height: 200px;
 }
 
 .card-image img {
@@ -531,23 +447,6 @@ html[lang="ar"] .quote-box {
     border-bottom-color: #7209B7;
 }
 
-
-
-/* --------------------------------------
-   هـ. التجاوب مع الجوال (Responsive)
--------------------------------------- */
-@media (max-width: 850px) {
-
-    /* تعديل خاص بالصفحة الرئيسية في الجوال */
-    .projects-grid .project-card {
-        flex: 0 0 85%;
-        max-width: 85%;
-        width: 85%;
-    }
-
-    /* صفحة كل المشاريع ستصبح عمود واحد تلقائياً بسبب Grid، لا تحتاج تعديل */
-}
-
 /* =========================================
    7. الأزرار (View All & Prototype)
    ========================================= */
@@ -575,7 +474,6 @@ html[lang="ar"] .quote-box {
     transform: scale(1.05);
 }
 
-/* زر البروتوتايب الذهبي */
 .arabah-proto-btn {
     background: transparent;
     border: 2px solid var(--arabah-main);
@@ -597,85 +495,17 @@ html[lang="ar"] .quote-box {
 }
 
 /* =========================================
-   8. الفوتر + التجاوب + الحركة
-   ========================================= */
-footer {
-    text-align: center;
-    padding: 30px;
-    margin-top: 60px;
-    color: #999;
-    font-size: 0.9rem;
-    border-top: 1px solid #eee;
-}
-
-@media (max-width: 850px) {
-    header {
-        width: 100%;
-        margin-top: 0;
-        border-radius: 0;
-        padding: 15px 20px;
-    }
-
-    .container {
-        padding: 0 20px;
-        margin-top: 30px;
-    }
-
-    .top-section {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .main-title {
-        font-size: 2.5rem;
-    }
-
-    .top-section .main-content {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .hero-image {
-        order: -1;
-        margin-bottom: 20px;
-        height: 250px;
-    }
-
-    /* في الجوال: البطاقة تأخذ 85% لكي يظهر للمستخدم أن هناك المزيد */
-    .project-card {
-        min-width: 85%;
-    }
-}
-
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.delay-200 {
-    animation-delay: 0.2s;
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* =========================================
-   قسم السيرة الذاتية (الخبرات والتعليم)
+   8. قسم السيرة الذاتية (الخبرات والتعليم)
    ========================================= */
 .resume-section {
     max-width: 1000px;
-    margin: 80px auto; /* مسافة من الأعلى والأسفل */
+    margin: 80px auto; 
     padding: 0 20px;
 }
 
 .resume-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* عمودين متساويين */
+    grid-template-columns: 1fr 1fr;
     gap: 50px;
 }
 
@@ -697,13 +527,11 @@ footer {
     padding: 20px;
     margin-bottom: 20px;
     border: 1px solid #f0f0f0;
-    /* خط ملون جانبي جمالي */
     border-right: 4px solid var(--pastel-blue); 
     box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     transition: transform 0.3s ease;
 }
 
-/* تغيير لون الخط الجانبي للعمود الثاني */
 .resume-column:nth-child(2) .resume-card {
     border-right-color: var(--pastel-pink);
 }
@@ -715,7 +543,6 @@ html[lang="en"] .resume-card {
 html[lang="en"] .resume-column:nth-child(2) .resume-card {
     border-left-color: var(--pastel-pink);
 }
-
 
 .resume-card:hover {
     transform: translateY(-3px);
@@ -764,15 +591,7 @@ html[lang="en"] .resume-column:nth-child(2) .resume-card {
     font-size: 0.9rem;
 }
 
-/* تجاوب مع الجوال */
-@media (max-width: 768px) {
-    .resume-container {
-        grid-template-columns: 1fr; /* عمود واحد */
-        gap: 40px;
-    }
-}
-
-/* تنسيق الأيقونة العامة */
+/* تنسيق الأيقونات (الشهادات) */
 .cert-icon {
     display: flex;
     align-items: center;
@@ -790,7 +609,6 @@ html[lang="en"] .resume-column:nth-child(2) .resume-card {
     fill: currentColor;
 }
 
-/* تنسيق خاص للرابط (قابل للنقر - وردي) */
 .cert-icon.link {
     background-color: #fff;
     border: 1px solid var(--pastel-pink);
@@ -804,44 +622,92 @@ html[lang="en"] .resume-column:nth-child(2) .resume-card {
     transform: scale(1.1);
 }
 
-/* تنسيق خاص للثابت (غير قابل للنقر - رمادي فاتح) */
 .cert-icon.static {
     background-color: #f5f5f5;
     border: 1px solid #eee;
     color: #999;
-    cursor: default; /* الماوس العادي */
+    cursor: default;
 }
+
 /* =========================================
-   7. التجاوب النهائي (الجوال)
+   9. الفوتر والتجاوب العام
    ========================================= */
-@media (max-width: 850px) {
-    .top-section {
-        display: flex;
-        flex-direction: column; /* الاسم أولاً */
-    }
-
-    .text-column { order: 1; }
-    .visual-column { order: 2; flex-direction: column; } /* ترتيب طبيعي */
-    
-    .hero-image { order: 1; height: 300px; } /* الصورة قبل التواصل */
-    .quote-box { order: 2; }
-
-    .main-title { font-size: 2.5rem; text-align: center; }
-    .text-content { text-align: center; }
-
-    .projects-grid .project-card {
-        flex: 0 0 85%;
-        max-width: 85%;
-    }
-    
-    .resume-container { grid-template-columns: 1fr; }
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 60px;
+    color: #999;
+    font-size: 0.9rem;
+    border-top: 1px solid #eee;
 }
 
+@media (max-width: 850px) {
+    header {
+        width: 100%;
+        margin-top: 0;
+        border-radius: 0;
+        padding: 15px 20px;
+    }
+
+    .container {
+        padding: 0 20px;
+        margin-top: 30px;
+    }
+
+    .top-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .visual-column {
+        order: -1;
+        flex-direction: column-reverse;
+    }
+
+    .text-column {
+        order: 1;
+    }
+
+    .hero-image {
+        height: 300px;
+        margin-bottom: 20px;
+    }
+
+    html[lang="ar"] .main-title,
+    html[lang="ar"] .text-content,
+    html[lang="en"] .main-title,
+    html[lang="en"] .text-content {
+        text-align: center;
+    }
+
+    /* تعديل حجم البطاقة في الجوال ليكون 80% */
+    .projects-grid .project-card {
+        flex: 0 0 80%;
+        max-width: 80%;
+        width: 80%;
+    }
+
+    .resume-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* تأثيرات الحركة (Animations) */
 .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

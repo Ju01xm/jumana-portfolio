@@ -303,6 +303,8 @@ html[lang="ar"] .quote-box {
     padding-bottom: 30px;
     width: 100%;
     position: relative; 
+   max-width: 1150px !important; /* ليتطابق مع عرض الهيدر والمحتوى */
+    margin: 0 auto !important;
 }
 
 /* الخط الفاصل الوردي */
@@ -332,6 +334,8 @@ html[lang="ar"] .quote-box {
     gap: 30px;
     overflow-x: auto;
     padding-bottom: 20px;
+   padding-right: 20px !important;
+    padding-left: 20px !important;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE */
 }

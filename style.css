@@ -715,3 +715,33 @@ footer {
         transform: translateY(0);
     }
 }
+
+.featured-section {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 auto !important;
+}
+
+/* 2. إضافة مسافة ذكية (Padding) داخل حاوية الكروت */
+.projects-grid {
+    padding-right: calc((100vw - 1100px) / 2) !important; /* مسافة تلقائية تتماشى مع محتوى الموقع */
+    padding-left: calc((100vw - 1100px) / 2) !important;  
+    gap: 30px !important;
+}
+
+/* 3. لضمان ألا تلتصق الكروت بأطراف الشاشات الصغيرة أو اللاب توب */
+@media (max-width: 1200px) {
+    .projects-grid {
+        padding-right: 40px !important; /* مسافة أمان ثابتة يمين */
+        padding-left: 40px !important;  /* مسافة أمان ثابتة يسار */
+    }
+}
+
+@media (max-width: 850px) {
+    .projects-grid {
+        padding-right: 20px !important; /* مسافة أنعم تناسب الجوال */
+        padding-left: 20px !important;
+    }
+}

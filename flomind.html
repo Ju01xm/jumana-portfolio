@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flomind | مشروع التخرج</title>
+    <!-- استدعاء الخطوط المتطابقة مع الثيم الأساسي -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- ملف التنسيقات الرئيسي -->
+    <link rel="stylesheet" href="style.css">
+    <!-- تنسيقات خاصة بصفحة Flomind لتميز هويتها البصرية -->
+    <style>
+        :root {
+            --flomind-soft: #fdf0f5;
+            --flomind-mid: #f5c6da;
+            --flomind-main: #e87ca4;
+            --flomind-dark: #b84f77;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .meta-tag {
+            background: var(--flomind-soft);
+            color: var(--flomind-dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 1px solid var(--flomind-mid);
+        }
+
+        .big-image {
+            width: 100%;
+            height: auto;
+            min-height: 320px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(184, 79, 119, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--flomind-soft) 0%, #fdf6f0 100%);
+        }
+
+        .big-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content-area {
+            max-width: 900px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        .content-area h2 {
+            color: var(--flomind-dark);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--flomind-mid);
+            display: inline-block;
+        }
+
+        .content-area p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* ── الإحصائيات (Stats) ── */
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .stat-box {
+            flex: 1;
+            min-width: 130px;
+            background: white;
+            border: 1px solid var(--flomind-mid);
+            border-radius: 12px;
+            padding: 20px 18px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .stat-number {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--flomind-main);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 6px;
+        }
+
+        /* ── البطاقات (Features & Team) ── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            border: 1px solid var(--flomind-mid);
+            border-radius: 15px;
+            padding: 22px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--flomind-dark);
+            margin-bottom: 8px;
+            font-family: var(--font-heading);
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #555;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .team-card {
+            background: white;
+            border: 1px solid var(--flomind-mid);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        .team-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--flomind-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .team-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .team-id {
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        /* ── الصور والتقنيات (Gallery & Tech Stack) ── */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-img {
+            width: 100%;
+            border-radius: 15px;
+            border: 1px solid #eee;
+        }
+
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .tech-pill {
+            background: #fdf6f0;
+            border: 1px solid #e8cfc0;
+            color: #8D5B2F;
+            border-radius: 20px;
+            padding: 6px 18px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        /* ── التنقل والأزرار (Nav & Buttons) ── */
+        .back-nav {
+            padding: 20px 0;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #555;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--flomind-main);
+            transform: translateX(5px);
+        }
+
+        /* التعديل للغة الإنجليزية */
+        html[lang="en"] .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        .view-behance-btn {
+            border: 2px solid var(--flomind-main);
+            color: var(--flomind-dark);
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .view-behance-btn:hover {
+            background: var(--flomind-main);
+            color: white;
+        }
+
+        /* ── التجاوب (Responsive) ── */
+        @media (max-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── تنسيق البوستر (Poster) ── */
+        .poster-section {
+            margin-top: 40px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .poster-container {
+            width: 100%;
+            /* نحدد أقصى عرض لضمان أن البوستر لا يصبح ضخماً جداً على الشاشات الكبيرة */
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            border: 1px solid var(--flomind-mid);
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 8px 25px rgba(184, 79, 119, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .poster-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(184, 79, 119, 0.12);
+        }
+
+        .poster-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">جُــمــانــه</div>
+            <nav>
+                <a href="index.html" data-en="Back to Portfolio" data-ar="عودة للبورتفوليو">عودة للبورتفوليو</a>
+                <button id="lang-btn">English</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container fade-in">
+
+        <div class="back-nav">
+            <a href="index.html" class="back-link">→ <span data-en="Back to Home" data-ar="الرئيسية">الرئيسية</span></a>
+        </div>
+
+        <!-- PROJECT HEADER -->
+        <div class="project-header">
+            <h1 data-en="Flomind – Smart Study App" data-ar="Flomind – تطبيق الدراسة الذكي">
+                Flomind – تطبيق الدراسة الذكي
+            </h1>
+            <div class="project-meta">
+                <span class="meta-tag">مشروع تخرج</span>
+                <span class="meta-tag">Flutter · Dart</span>
+                <span class="meta-tag">ذكاء اصطناعي</span>
+                <span class="meta-tag">UI/UX</span>
+                <span class="meta-tag">تقنية تعليمية</span>
+            </div>
+        </div>
+
+        <!-- HERO IMAGE -->
+        <div class="big-image">
+            <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJamw8M4kXPIJ5uHrcU0ZMVSRbsBytFgwYviTq"
+                alt="Flomind App Cover" onerror="this.style.display='none'">
+        </div>
+
+        <!-- MAIN CONTENT AREA -->
+        <div class="content-area">
+
+            <!-- STATS -->
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="stat-number">155</div>
+                    <div class="stat-label" data-en="Survey responses" data-ar="مشاركة في الاستبيان">مشاركة في الاستبيان
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">85%</div>
+                    <div class="stat-label" data-en="Want to try the app" data-ar="أبدوا رغبة في تجربة التطبيق">أبدوا
+                        رغبة في تجربة التطبيق</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">SM-2</div>
+                    <div class="stat-label" data-en="Spaced repetition algorithm" data-ar="خوارزمية التكرار المتباعد">
+                        خوارزمية التكرار المتباعد</div>
+                </div>
+            </div>
+
+            <!-- OVERVIEW -->
+            <h2 data-en="What is Flomind?" data-ar="نظرة عامة">نظرة عامة</h2>
+            <p data-en="Flomind is an intelligent study assistant app built as a graduation project at Taibah University. It helps students retain information longer by combining the SM-2 spaced repetition algorithm, AI-generated quizzes from uploaded study materials, a Pomodoro focus timer, and a gamified virtual garden system."
+                data-ar="Flomind هو تطبيق مساعد دراسي ذكي طُوِّر كمشروع تخرج في جامعة طيبة. يُساعد الطلاب على الاحتفاظ بالمعلومات لفترة أطول من خلال دمج خوارزمية SM-2 للتكرار المتباعد، وإنشاء اختبارات بالذكاء الاصطناعي من الملفات الدراسية، وتقنية بومودورو، ونظام حديقة افتراضية تحفيزي.">
+                Flomind هو تطبيق مساعد دراسي ذكي طُوِّر كمشروع تخرج في جامعة طيبة. يُساعد الطلاب على الاحتفاظ بالمعلومات
+                لفترة أطول من خلال دمج خوارزمية SM-2 للتكرار المتباعد، وإنشاء اختبارات بالذكاء الاصطناعي من الملفات
+                الدراسية، وتقنية بومودورو، ونظام حديقة افتراضية تحفيزي.
+            </p>
+            <p data-en="Research shows that students forget a significant amount of material shortly after studying unless they review it systematically. Flomind transforms this science into an interactive and enjoyable experience by turning each subject into a tree that grows with consistent review and withers when neglected."
+                data-ar="تُثبت الأبحاث أن الطلاب ينسون جزءاً كبيراً مما يدرسونه ما لم يراجعوه بشكل منتظم. يحوّل Flomind هذا العلم إلى تجربة تفاعلية ممتعة، إذ يُمثَّل كل مادة دراسية بشجرة تنمو مع الالتزام بالمراجعة وتذبل عند الإهمال.">
+                تُثبت الأبحاث أن الطلاب ينسون جزءاً كبيراً مما يدرسونه ما لم يراجعوه بشكل منتظم. يحوّل Flomind هذا العلم
+                إلى تجربة تفاعلية ممتعة، إذ يُمثَّل كل مادة دراسية بشجرة تنمو مع الالتزام بالمراجعة وتذبل عند الإهمال.
+            </p>
+
+            <!-- PROBLEM -->
+            <h2 data-en="The Problem" data-ar="المشكلة">المشكلة</h2>
+            <p data-en="Students often struggle with three core issues: forgetting information quickly after studying (Ebbinghaus forgetting curve), lack of focus during study sessions, and staying motivated enough to maintain consistent review habits. Existing tools like Anki and SuperMemo address memory but lack engaging design and AI support. Forest improves focus but offers no learning tools."
+                data-ar="يعاني الطلاب من ثلاث مشكلات رئيسية: النسيان السريع بعد الدراسة (منحنى إبنجهاوس )، وصعوبة التركيز، وفقدان الدافعية للمراجعة المنتظمة. الأدوات الموجودة كـ Anki و SuperMemo تعالج الذاكرة لكن تفتقر إلى تصميم جذاب ودعم الذكاء الاصطناعي، أما Forest فتُحسِّن التركيز دون أن تقدم أدوات تعليمية.">
+                يعاني الطلاب من ثلاث مشكلات رئيسية: النسيان السريع بعد الدراسة (منحنى إبنجهاوس )، وصعوبة التركيز، وفقدان
+                الدافعية للمراجعة المنتظمة. الأدوات الموجودة كـ Anki و SuperMemo تعالج الذاكرة لكن تفتقر إلى تصميم جذاب
+                ودعم الذكاء الاصطناعي، أما Forest فتُحسِّن التركيز دون أن تقدم أدوات تعليمية.
+            </p>
+
+            <!-- FEATURES -->
+            <h2 data-en="Key Features" data-ar="أبرز المميزات">أبرز المميزات</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 data-en="AI Quiz Generator" data-ar="مولِّد اختبارات بالذكاء الاصطناعي">مولِّد اختبارات بالذكاء
+                        الاصطناعي</h3>
+                    <p data-en="Upload PDF, Word, or PowerPoint files and the app generates MCQ questions automatically using GPT-4o-mini."
+                        data-ar="ارفع ملفاتك الدراسية وسيُولِّد التطبيق اختبارات MCQ تلقائياً باستخدام GPT-4o-mini.">
+                        ارفع ملفاتك الدراسية وسيُولِّد التطبيق اختبارات MCQ تلقائياً باستخدام GPT-4o-mini.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌳</div>
+                    <h3 data-en="Virtual Garden" data-ar="الحديقة الافتراضية">الحديقة الافتراضية</h3>
+                    <p data-en="Each subject is a tree. Consistent review makes it grow; missing sessions causes it to wither — a visual motivation system."
+                        data-ar="كل مادة تُمثَّل بشجرة تنمو مع الالتزام وتذبل عند الإهمال — نظام تحفيز بصري فريد.">
+                        كل مادة تُمثَّل بشجرة تنمو مع الالتزام وتذبل عند الإهمال.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 data-en="SM-2 Algorithm" data-ar="خوارزمية SM-2">خوارزمية SM-2</h3>
+                    <p data-en="Schedules review sessions at optimal intervals based on how well you remember each topic."
+                        data-ar="تُجدوِل المراجعات في التوقيت الأمثل بناءً على أدائك الفعلي ومستوى تذكرك.">
+                        تُجدوِل المراجعات في التوقيت الأمثل بناءً على أدائك الفعلي ومستوى تذكرك.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3 data-en="Pomodoro Timer" data-ar="تقنية بومودورو">تقنية بومودورو</h3>
+                    <p data-en="Focus sessions with configurable timers to help you stay productive and manage study time."
+                        data-ar="جلسات تركيز بمؤقتات قابلة للضبط لإدارة وقت الدراسة بكفاءة.">
+                        جلسات تركيز بمؤقتات قابلة للضبط لإدارة وقت الدراسة.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3 data-en="Mind Games" data-ar="ألعاب تدريب الذاكرة">ألعاب تدريب الذاكرة</h3>
+                    <p data-en="Cognitive training games to sharpen focus and improve short-term memory between study sessions."
+                        data-ar="ألعاب معرفية لتقوية التركيز وتحسين الذاكرة قصيرة المدى بين جلسات الدراسة.">
+                        ألعاب معرفية لتقوية التركيز وتحسين الذاكرة بين الجلسات.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3 data-en="Smart Reminders" data-ar="تذكيرات ذكية">تذكيرات ذكية</h3>
+                    <p data-en="Push notifications remind you to review subjects at exactly the right time based on SM-2 scheduling."
+                        data-ar="إشعارات دفع تُذكِّرك بمراجعة المواد في التوقيت الأمثل وفقاً لجدول SM-2.">
+                        إشعارات تُذكِّرك بمراجعة المواد في التوقيت الأمثل.
+                    </p>
+                </div>
+            </div>
+
+            <!-- PROJECT POSTER -->
+            <div class="poster-section">
+                <h2 data-en="Project Poster" data-ar="بوستر المشروع">بوستر المشروع</h2>
+                <div class="poster-container">
+                    <!-- استبدلي الرابط أدناه برابط ملف الـ SVG الخاص بك -->
+                    <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJgKvvemo1IyUJ2Mlq8RONKT0DSV5wpvdHCh9W"
+                        alt="Flomind Project Poster" />
+                </div>
+            </div>
+
+            <!-- GALLERY -->
+            <h2 data-en="App Screens" data-ar="شاشات التطبيق">شاشات التطبيق</h2>
+            <div class="gallery-grid">
+                <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJu1dlQrwWPAOcJgz60EnMNCkvIbBRYyDGKtsp"
+                    class="gallery-img" alt="شاشات 1" />
+                <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJZhDlGlWNEmaMVxs5213odRLPcBHKQeXFkt9S"
+                    class="gallery-img" alt="شاشات 2" />
+                <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJp80iGTnH0abPvQrlVLKm68DEuTe2w97goWNk"
+                    class="gallery-img" alt="مراحل الشجرات" />
+
+
+            </div>
+
+            <!-- TECH STACK -->
+            <h2 data-en="Tools & Technologies" data-ar="التقنيات المستخدمة">التقنيات المستخدمة</h2>
+            <div class="tech-grid">
+                <span class="tech-pill">Flutter</span>
+                <span class="tech-pill">Dart</span>
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">GPT-4o-mini</span>
+                <span class="tech-pill">Supabase</span>
+                <span class="tech-pill">Rive Animations</span>
+                <span class="tech-pill">Render (Deploy)</span>
+                <span class="tech-pill">Figma</span>
+                <span class="tech-pill">GitHub</span>
+            </div>
+
+            <!-- TEAM -->
+            <h2 data-en="Project Team" data-ar="فريق العمل">فريق العمل </h2>
+            <p data-en="Graduation Project  — Supervised by Dr. Hanaa Nafea · 2026"
+                data-ar="مشروع تخرج  — بإشراف الدكتورة هناء نافع">
+                مشروع تخرج — بإشراف الدكتورة هناء نافع
+            </p>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">أ</div>
+                    <div>
+                        <div class="team-name">أفنان الحجيلي </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">ج</div>
+                    <div>
+                        <div class="team-name">جمانة الحربي</div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">ج</div>
+                    <div>
+                        <div class="team-name">جمانة السحيمي</div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">ل</div>
+                    <div>
+                        <div class="team-name">ليان الصاعدي</div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">س</div>
+                    <div>
+                        <div class="team-name">سارة الجهني</div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">س</div>
+                    <div>
+                        <div class="team-name">صبا الردادي</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="https://drive.google.com/file/d/1kqY0xP7_G_d3FUdiBPOGAZBx7XxPpn79/view?usp=sharing" target="_blank" class="view-behance-btn">
+                    <span data-en="View Demo" data-ar="شاهد ديمو المشروع">شاهد ديمو المشروع</span>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 جمانة - Jumana Portfolio.</p>
+    </footer>
+
+    <!-- استدعاء ملف الجافاسكربت الرئيسي لتفعيل تغيير اللغة وغيرها من التأثيرات -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

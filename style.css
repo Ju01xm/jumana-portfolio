@@ -689,12 +689,26 @@ footer {
         text-align: center;
     }
 
-    /* تعديل حجم البطاقة في الجوال ليكون 80% */
     .projects-grid .project-card {
-        flex: 0 0 80%;
-        max-width: 80%;
-        width: 80%;
-    }
+    flex: 0 0 75%;
+    max-width: 75%;
+    width: 75%;
+}
+
+   .card-content {
+    padding: 15px;
+}
+
+.card-category,
+.card-content h3,
+.card-content p {
+    text-align: right;
+}
+
+   .all-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
 
     .resume-container {
         grid-template-columns: 1fr;

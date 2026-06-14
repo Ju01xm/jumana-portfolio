@@ -301,6 +301,8 @@ html[lang="ar"] .quote-box {
 .featured-section {
     padding-top: 70px; /* تم تعديل المساحة العلوية للترتيب */
     padding-bottom: 30px;
+   padding-left: 20px;
+   padding-right: 20px;
     width: 100%;
     position: relative; 
    max-width: 1150px !important; /* ليتطابق مع عرض الهيدر والمحتوى */
@@ -334,8 +336,8 @@ html[lang="ar"] .quote-box {
     gap: 30px;
     overflow-x: auto;
     padding-bottom: 20px;
-   padding-right: 20px !important;
-    padding-left: 20px !important;
+   padding-right: 10px !important;
+    padding-left: 10px !important;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE */
 }
@@ -350,6 +352,8 @@ html[lang="ar"] .quote-box {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 40px;
     padding-bottom: 50px;
+   padding-left: 20px;
+   padding-right: 20px;
 }
 
 /* البطاقة الأساسية */

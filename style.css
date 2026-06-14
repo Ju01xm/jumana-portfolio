@@ -301,8 +301,8 @@ html[lang="ar"] .quote-box {
 .featured-section {
     padding-top: 70px; /* تم تعديل المساحة العلوية للترتيب */
     padding-bottom: 30px;
-   padding-left: 20px;
-   padding-right: 20px;
+   padding-left: 5px;
+   padding-right: 5px;
     width: 100%;
     position: relative; 
    max-width: 1150px !important; /* ليتطابق مع عرض الهيدر والمحتوى */

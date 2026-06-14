@@ -2,35 +2,26 @@
    1. المتغيرات وإعدادات الألوان (Variables)
    ========================================= */
 :root {
-    /* خلفية الصفحة والنصوص */
     --bg-main: #FFFCF9;
     --text-color: #4A4A4A;
     --header-text: #5D4E60;
-
-    /* لوحة ألوان الباستيل (Pastel Palette) */
     --pastel-pink: #FFC8DD;
     --pastel-purple: #ebdbf4;
     --pastel-blue: #BDE0FE;
     --pastel-green: #D0F4DE;
-
-    /* ألوان خاصة للمشاريع */
     --arabah-main: #D4A373;
     --arabah-dark: #8D5B2F;
-
-    /* الخطوط */
     --font-heading: 'Lora', serif;
     --font-body: 'Nunito', sans-serif;
     --font-arabic: 'IBM Plex Sans Arabic', sans-serif;
 }
 
-/* إعادة ضبط المتصفح (Reset) */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* إعدادات الصفحة العامة */
 body {
     background-color: var(--bg-main);
     color: var(--text-color);
@@ -39,7 +30,6 @@ body {
     overflow-x: hidden;
 }
 
-/* تعيين الخط العربي عند تفعيل اللغة العربية */
 html[lang="ar"] * {
     font-family: var(--font-arabic) !important;
 }
@@ -92,7 +82,6 @@ nav a.active {
     text-decoration: underline;
 }
 
-/* زر تغيير اللغة */
 #lang-btn {
     background: rgba(255, 255, 255, 0.4);
     border: 1px solid #fff;
@@ -208,13 +197,13 @@ html[lang="en"] .text-content {
     background-color: #f0f0f0;
 }
 
-.skill-tag.pink { background-color: var(--pastel-pink); }
-.skill-tag.blue { background-color: var(--pastel-blue); }
+.skill-tag.pink   { background-color: var(--pastel-pink); }
+.skill-tag.blue   { background-color: var(--pastel-blue); }
 .skill-tag.purple { background-color: var(--pastel-purple); }
-.skill-tag.green { background-color: var(--pastel-green); }
+.skill-tag.green  { background-color: var(--pastel-green); }
 
 /* =========================================
-   5. القائمة الجانبية (Sidebar)
+   5. العمود الجانبي (Visual Column)
    ========================================= */
 .visual-column {
     display: flex;
@@ -296,20 +285,19 @@ html[lang="ar"] .quote-box {
 }
 
 /* =========================================
-   6. قسم المشاريع (Featured Work & All Projects)
+   6. قسم المشاريع
    ========================================= */
 .featured-section {
-    padding-top: 70px; /* تم تعديل المساحة العلوية للترتيب */
+    padding-top: 70px;
     padding-bottom: 30px;
-   padding-left: 5px;
-   padding-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
     width: 100%;
-    position: relative; 
-   max-width: 1150px !important; /* ليتطابق مع عرض الهيدر والمحتوى */
+    position: relative;
+    max-width: 1150px !important;
     margin: 0 auto !important;
 }
 
-/* الخط الفاصل الوردي */
 .featured-section::before {
     content: "";
     position: absolute;
@@ -330,7 +318,6 @@ html[lang="ar"] .quote-box {
     color: #333;
 }
 
-/* حاوية الشبكة الأفقية (الصفحة الرئيسية) */
 .projects-grid {
     display: flex;
     gap: 30px;
@@ -343,20 +330,18 @@ html[lang="ar"] .quote-box {
 }
 
 .projects-grid::-webkit-scrollbar {
-    display: none; /* Chrome */
+    display: none;
 }
 
-/* حاوية الشبكة العمودية (صفحة كل المشاريع) */
 .all-projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 40px;
     padding-bottom: 50px;
-   padding-left: 5px;
-   padding-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
-/* البطاقة الأساسية */
 .project-card {
     background: white;
     border-radius: 16px;
@@ -373,28 +358,24 @@ html[lang="ar"] .quote-box {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* تخصيص حجم البطاقة في الصفحة الرئيسية */
 .projects-grid .project-card {
-    flex: 0 0 310px; /* العرض المصغر الجديد */
+    flex: 0 0 310px;
     max-width: 310px;
     width: 310px;
 }
 
-/* تخصيص حجم البطاقة في صفحة كل المشاريع */
 .all-projects-grid .project-card {
     width: 100%;
     max-width: 100%;
     flex: auto;
 }
 
-/* الصور داخل البطاقات */
 .card-image {
     height: 220px;
     overflow: hidden;
     background-color: #f9f9f9;
 }
 
-/* تصغير ارتفاع الصورة قليلاً للصفحة الرئيسية فقط لتتناسب مع العرض الجديد */
 .projects-grid .card-image {
     height: 200px;
 }
@@ -456,7 +437,7 @@ html[lang="ar"] .quote-box {
 }
 
 /* =========================================
-   7. الأزرار (View All & Prototype)
+   7. الأزرار
    ========================================= */
 .view-all-container {
     text-align: center;
@@ -503,11 +484,11 @@ html[lang="ar"] .quote-box {
 }
 
 /* =========================================
-   8. قسم السيرة الذاتية (الخبرات والتعليم)
+   8. قسم السيرة الذاتية
    ========================================= */
 .resume-section {
     max-width: 1000px;
-    margin: 80px auto; 
+    margin: 80px auto;
     padding: 0 20px;
 }
 
@@ -535,8 +516,8 @@ html[lang="ar"] .quote-box {
     padding: 20px;
     margin-bottom: 20px;
     border: 1px solid #f0f0f0;
-    border-right: 4px solid var(--pastel-blue); 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border-right: 4px solid var(--pastel-blue);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     transition: transform 0.3s ease;
 }
 
@@ -548,13 +529,14 @@ html[lang="en"] .resume-card {
     border-right: none;
     border-left: 4px solid var(--pastel-blue);
 }
+
 html[lang="en"] .resume-column:nth-child(2) .resume-card {
     border-left-color: var(--pastel-pink);
 }
 
 .resume-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
 
 .resume-date {
@@ -599,7 +581,6 @@ html[lang="en"] .resume-column:nth-child(2) .resume-card {
     font-size: 0.9rem;
 }
 
-/* تنسيق الأيقونات (الشهادات) */
 .cert-icon {
     display: flex;
     align-items: center;
@@ -638,7 +619,7 @@ html[lang="en"] .resume-column:nth-child(2) .resume-card {
 }
 
 /* =========================================
-   9. الفوتر والتجاوب العام
+   9. الفوتر
    ========================================= */
 footer {
     text-align: center;
@@ -649,6 +630,9 @@ footer {
     border-top: 1px solid #eee;
 }
 
+/* =========================================
+   10. التجاوب (Responsive)
+   ========================================= */
 @media (max-width: 850px) {
     header {
         width: 100%;
@@ -668,18 +652,28 @@ footer {
         text-align: center;
     }
 
-    .visual-column {
-        order: -1;
-        flex-direction: column-reverse;
-    }
-
     .text-column {
         order: 1;
     }
 
+    .visual-column {
+        order: 2;
+        flex-direction: column;
+    }
+
     .hero-image {
-        height: 300px;
-        margin-bottom: 20px;
+        width: 120px;
+        height: 120px;
+        border-radius: 15px;
+        flex-shrink: 0;
+        margin-bottom: 0;
+    }
+
+    .quote-box {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        text-align: right;
     }
 
     html[lang="ar"] .main-title,
@@ -690,25 +684,25 @@ footer {
     }
 
     .projects-grid .project-card {
-    flex: 0 0 75%;
-    max-width: 75%;
-    width: 75%;
-}
+        flex: 0 0 75%;
+        max-width: 75%;
+        width: 75%;
+    }
 
-   .card-content {
-    padding: 15px;
-}
+    .card-content {
+        padding: 15px;
+    }
 
-.card-category,
-.card-content h3,
-.card-content p {
-    text-align: right;
-}
+    .card-category,
+    .card-content h3,
+    .card-content p {
+        text-align: right;
+    }
 
-   .all-projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-}
+    .all-projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
 
     .resume-container {
         grid-template-columns: 1fr;
@@ -716,7 +710,9 @@ footer {
     }
 }
 
-/* تأثيرات الحركة (Animations) */
+/* =========================================
+   11. تأثيرات الحركة (Animations)
+   ========================================= */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -731,38 +727,5 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-@media (max-width: 850px) {
-    .top-section {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-
-    /* الترتيب الجديد على الجوال */
-    .text-column {
-        order: 1;
-    }
-
-    .visual-column {
-        order: 2;  /* بدل -1 */
-        flex-direction: column;  /* بدل column-reverse */
-    }
-
-    /* الصورة تصير صغيرة جنب التواصل */
-    .quote-box {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        text-align: right;
-    }
-
-    .hero-image {
-        width: 120px;
-        height: 120px;
-        border-radius: 15px;
-        flex-shrink: 0;
-        margin-bottom: 0;
     }
 }

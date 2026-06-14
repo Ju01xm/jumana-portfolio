@@ -197,10 +197,21 @@ html[lang="en"] .text-content {
     background-color: #f0f0f0;
 }
 
-.skill-tag.pink   { background-color: var(--pastel-pink); }
-.skill-tag.blue   { background-color: var(--pastel-blue); }
-.skill-tag.purple { background-color: var(--pastel-purple); }
-.skill-tag.green  { background-color: var(--pastel-green); }
+.skill-tag.pink {
+    background-color: var(--pastel-pink);
+}
+
+.skill-tag.blue {
+    background-color: var(--pastel-blue);
+}
+
+.skill-tag.purple {
+    background-color: var(--pastel-purple);
+}
+
+.skill-tag.green {
+    background-color: var(--pastel-green);
+}
 
 /* =========================================
    5. العمود الجانبي (Visual Column)
@@ -684,19 +695,20 @@ footer {
     }
 
     .projects-grid .project-card {
-    flex: 0 0 200px;
-    max-width: 200px;
-    width: 200px;
-    margin-left: 0;
-    margin-right: 0;
-}
-   .projects-grid {
-    padding-left: 20px;
-    padding-right: 20px;
-}
+        flex: 0 0 300px;
+        max-width: 400px;
+        width: 400px;
+        margin-left: 50;
+        margin-right: 50;
+    }
+
+    .projects-grid {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
 
     .card-content {
-        padding: 15px;
+        padding: 10px;
     }
 
     .card-category,

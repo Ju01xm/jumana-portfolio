@@ -684,10 +684,10 @@ footer {
     }
 
     .projects-grid .project-card {
-        flex: 0 0 75%;
-        max-width: 75%;
-        width: 75%;
-    }
+    flex: 0 0 260px;
+    max-width: 260px;
+    width: 260px;
+}
 
     .card-content {
         padding: 15px;

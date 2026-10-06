@@ -1,6 +1,4 @@
-/* ===== خطوط ثمانية =====
-   حطي ملفات الخط في مجلد fonts بجانب هذا الملف،
-   وعدّلي أسماء الملفات تحت لتطابق اللي نزّلتيه، واحذفي أي وزن ما عندك. */
+/* ===== خطوط مخصصة ===== */
 @font-face {
     font-family: 'Thmanyah Serif Display';
     src: url('fonts/ThmanyahSerifDisplay-Regular.otf') format('opentype');
@@ -44,8 +42,8 @@
     --line: #e9e9e9;
     --pink: #FFC8DD;
     --green: #3CCB7F;
-    --font-display: 'Thmanyah Serif Display', 'Rakkas', serif;
-    --font-heading: 'Thmanyah Serif Display', 'Rakkas', serif;
+    --font-display: 'Thmanyah Serif Display', 'IBM Plex Sans Arabic', serif;
+    --font-heading: 'Thmanyah Serif Display', 'IBM Plex Sans Arabic', serif;
     --font-body: 'Thmanyah Sans', 'IBM Plex Sans Arabic', sans-serif;
     --header-text: #0b0b0b;
     --pastel-pink: #FFC8DD;
@@ -345,126 +343,128 @@ section {
 /* ===== About ===== */
 .about {
     display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 70px;
-    margin-bottom: 90px;
-    align-items: start;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 60px;
+    margin-bottom: 100px;
+    align-items: center;
+}
+
+.about-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.4rem, 2.3vw, 1.8rem);
+    line-height: 1.35;
+    color: var(--ink);
+    margin-bottom: 12px;
+}
+
+.about-intro {
+    font-size: 1.08rem;
+    font-weight: 300;
+    line-height: 1.85;
+    margin-bottom: 22px;
+    color: var(--ink);
+}
+
+.about-heading {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.35rem, 2.1vw, 1.7rem);
+    line-height: 1.35;
+    color: var(--ink);
+    margin-bottom: 12px;
 }
 
 .about p {
-    font-size: 1.12rem;
+    font-size: 1.05rem;
     margin-bottom: 18px;
     max-width: 58ch;
 }
 
-
-.stats {
-    display: grid;
-    gap: 0;
-}
-
-.stat {
+/* ===== 3D Skills Badges Stack ===== */
+.skills-stack-wrapper {
     display: flex;
-    align-items: baseline;
-    gap: 16px;
-    padding: 22px 0;
-    border-top: 1px solid var(--line);
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+    perspective: 1200px;
 }
 
-.stat b {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 3rem;
-    line-height: 1;
-    min-width: 110px;
-}
-
-.stat span {
-    color: var(--muted);
-}
-
-.tools {
-    margin-top: 34px;
+.skills-stack {
+    position: relative;
+    width: 290px;
+    height: 380px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.tools span {
-    border: 1px solid var(--ink);
-    border-radius: 30px;
-    padding: 3px 18px;
-    font-size: .95rem;
-    font-weight: 400;
-}
-
-/* ===== About side cards ===== */
-.side {
-    display: grid;
-    gap: 18px;
-}
-
-.card {
-    border: 1px solid var(--line);
-    border-radius: 26px;
-    padding: 22px 24px;
-}
-
-.stats-card {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    text-align: center;
-}
-
-.stats-card>div+div {
-    border-inline-start: 1px solid var(--line);
-}
-
-.stats-card b {
-    display: block;
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 2rem;
-    line-height: 1.3;
-}
-
-.stats-card span {
-    color: var(--muted);
-    font-size: .95rem;
-}
-
-.tools-card {
+.badge {
+    position: absolute;
+    width: 265px;
+    padding: 13px 20px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
-    gap: 22px;
-    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    font-size: 1.22rem;
+    font-weight: 500;
+    user-select: none;
+    direction: ltr;
+    z-index: calc(10 - var(--i));
+    transform: translateY(calc(var(--i) * 11px)) rotate(var(--rot-idle));
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
 }
 
-.tools-card strong {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.2rem;
+/* عند المرور بالماوس أو النقر بالجوال */
+.skills-stack:hover .badge,
+.skills-stack.is-open .badge {
+    transform: translateY(calc((var(--i) - 2) * 62px)) rotate(var(--rot-open)) scale(1.02);
 }
 
-.logos {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    align-items: center;
+.skills-stack .badge:hover,
+.skills-stack.is-open .badge:active {
+    transform: translateY(calc((var(--i) - 2) * 62px)) rotate(0deg) scale(1.06) !important;
+    z-index: 25 !important;
 }
 
-.logos img {
-    height: 32px;
-    width: 32px;
-    object-fit: contain;
-    filter: grayscale(1);
-    opacity: .8;
-    transition: filter .2s, opacity .2s;
+/* ألوان وستايل البطاقات */
+.badge-blue {
+    background: #EAF2FF;
+    color: #2D68C4;
+    border: 2px solid #C8DDFF;
+    box-shadow: 0 10px 20px rgba(45, 104, 196, 0.12), inset 0 2px 4px #ffffff, inset 0 -3px 5px rgba(45, 104, 196, 0.12);
 }
 
-.logos img:hover {
-    filter: none;
-    opacity: 1;
+.badge-green {
+    background: #ECF8EE;
+    color: #2E8B57;
+    border: 2px solid #C9F0D6;
+    box-shadow: 0 10px 20px rgba(46, 139, 87, 0.12), inset 0 2px 4px #ffffff, inset 0 -3px 5px rgba(46, 139, 87, 0.12);
+}
+
+.badge-pink {
+    background: #FFF0F4;
+    color: #C94277;
+    border: 2px solid #FFD0E2;
+    box-shadow: 0 10px 20px rgba(201, 66, 119, 0.12), inset 0 2px 4px #ffffff, inset 0 -3px 5px rgba(201, 66, 119, 0.12);
+}
+
+.badge-yellow {
+    background: #FEF9E7;
+    color: #B58500;
+    border: 2px solid #FDF0B8;
+    box-shadow: 0 10px 20px rgba(181, 133, 0, 0.12), inset 0 2px 4px #ffffff, inset 0 -3px 5px rgba(181, 133, 0, 0.12);
+}
+
+.badge-purple {
+    background: #F3EDFF;
+    color: #6C4AB6;
+    border: 2px solid #E0D3FF;
+    box-shadow: 0 10px 20px rgba(108, 74, 182, 0.12), inset 0 2px 4px #ffffff, inset 0 -3px 5px rgba(108, 74, 182, 0.12);
 }
 
 /* ===== Screens strip ===== */
@@ -473,31 +473,43 @@ section {
 }
 
 .screens-viewport {
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     direction: ltr;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    padding: 15px 0 25px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+}
+
+.screens-viewport::-webkit-scrollbar {
+    height: 6px;
+}
+
+.screens-viewport::-webkit-scrollbar-thumb {
+    background: #d8d8d8;
+    border-radius: 10px;
 }
 
 .screens-track {
     display: flex;
     width: max-content;
-    animation: slide 70s linear infinite;
-}
-
-.screens-viewport:hover .screens-track {
-    animation-play-state: paused;
+    gap: 20px;
+    padding: 0 24px;
 }
 
 .screens-track img {
     height: 380px;
     width: auto;
-    min-width: 150px;
+    min-width: 160px;
     border-radius: 22px;
     border: 1px solid var(--line);
-    margin-right: 22px;
     display: block;
     background: #f3f3f3;
+    scroll-snap-align: center;
+    flex-shrink: 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    user-select: none;
 }
 
 /* ===== Resume + certificates ===== */
@@ -632,7 +644,7 @@ footer {
     border-top: 1px solid var(--line);
 }
 
-/* ===== الصفحات الداخلية (المشاريع) ===== */
+/* ===== الصفحات الفرعية ===== */
 .project-header h1,
 .page-title {
     font-family: var(--font-display);
@@ -759,7 +771,6 @@ footer {
         opacity: 0;
         transform: translateY(18px);
     }
-
     to {
         opacity: 1;
         transform: none;
@@ -777,27 +788,51 @@ footer {
     }
 }
 
+/* ===== التجاوب مع الجوال ===== */
 @media (max-width: 860px) {
     .header-inner {
-        padding: 16px 18px;
+        padding: 16px 20px;
+        flex-direction: column;
+        gap: 14px;
     }
 
     nav {
-        gap: 16px;
+        gap: 14px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    nav a {
+        font-size: 0.94rem;
     }
 
     .hero {
-        padding: 60px 0 50px;
+        padding: 50px 0 40px;
+    }
+
+    .hero h1 {
+        font-size: 1.85rem;
+        line-height: 1.45;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    .work {
+        margin-bottom: 75px;
     }
 
     .row {
-        grid-template-columns: 80px 1fr auto;
-        gap: 16px;
+        grid-template-columns: 75px 1fr auto;
+        gap: 14px;
+        padding: 14px 6px;
     }
 
     .row img {
-        width: 80px;
-        height: 60px;
+        width: 75px;
+        height: 55px;
     }
 
     .row small {
@@ -805,165 +840,66 @@ footer {
     }
 
     .row h3 {
-        font-size: 1.25rem;
+        font-size: 1.15rem;
     }
 
-    .about,
-    .resume {
+    .about {
         grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 40px;
+        margin-bottom: 70px;
+    }
+
+    .about-title {
+        font-size: 1.5rem !important;
+    }
+
+    .about-heading {
+        font-size: 1.35rem !important;
+    }
+
+    .about-intro, .about p {
+        font-size: 1rem !important;
+        line-height: 1.8;
+    }
+
+    .skills-stack-wrapper {
+        padding: 20px 0 40px;
+    }
+
+    .skills-stack {
+        width: 250px;
+        height: 330px;
+    }
+
+    .badge {
+        width: 240px;
+        padding: 11px 16px;
+        font-size: 1.05rem;
+    }
+
+    .skills-stack:hover .badge,
+    .skills-stack.is-open .badge {
+        transform: translateY(calc((var(--i) - 2) * 52px)) rotate(var(--rot-open)) scale(1);
+    }
+
+    .screens {
+        margin-bottom: 75px;
+    }
+
+    .screens-track {
+        padding: 0 16px;
+        gap: 14px;
     }
 
     .screens-track img {
-        height: 280px;
+        height: 270px;
+        min-width: 135px;
+        border-radius: 16px;
     }
 
-    .gallery-grid {
-        grid-template-columns: 1fr !important;
+    .resume {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        margin-bottom: 80px;
     }
-}
-
-/* ===== توسيط الحاوية رأسياً مع النص المقابل ===== */
-.about {
-    align-items: center;
-    /* يضمن توسيط المهارات عمودياً في منتصف القسم تماماً */
-}
-
-/* ===== 3D Skills Badges Stack ===== */
-.skills-stack-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 0;
-    perspective: 1200px;
-}
-
-.skills-stack {
-    position: relative;
-    width: 290px;
-    height: 380px;
-    /* مساحة كافية للتمدد */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.badge {
-    position: absolute;
-    width: 265px;
-    padding: 13px 20px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    font-size: 1.25rem;
-    font-weight: 500;
-    user-select: none;
-    direction: ltr;
-
-    /* ترتيب الطبقات: البطاقة الأولى بالأعلى والأخيرة بالأسفل */
-    z-index: calc(10 - var(--i));
-
-    /* الحالة الافتراضية: تتكدس خلف بعضها مثل الصورة المغلقة تماماً مع دوران بسيط */
-    transform: translateY(calc(var(--i) * 11px)) rotate(var(--rot-idle));
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
-}
-
-/* الحالة التفاعلية: عند تمرير الماوس على الحاوية بالكامل، تتوسع وتتباعد لتظهر كل النصوص */
-.skills-stack:hover .badge {
-    /* تتوزع البطاقات عمودياً بفارق منتظم ودرجات ميلان عفوية كما في الصورة المفتوحة */
-    transform: translateY(calc((var(--i) - 2) * 62px)) rotate(var(--rot-open)) scale(1.02);
-}
-
-/* تفاعل إضافي خفيف عند الإشارة المباشرة لبطاقة بعينها */
-.skills-stack .badge:hover {
-    transform: translateY(calc((var(--i) - 2) * 62px)) rotate(0deg) scale(1.07) !important;
-    z-index: 25 !important;
-}
-
-/* ألوان وستايل الـ Claymorphism ثلاثي الأبعاد مطابق للصور */
-.badge-blue {
-    background: #EAF2FF;
-    color: #2D68C4;
-    border: 2px solid #C8DDFF;
-    box-shadow: 0 10px 20px rgba(45, 104, 196, 0.12), inset 0 2px 4px #ffffff, inset 0 -3px 5px rgba(45, 104, 196, 0.12);
-}
-
-.badge-green {
-    background: #ECF8EE;
-    color: #2E8B57;
-    border: 2px solid #C9F0D6;
-    box-shadow: 0 10px 20px rgba(46, 139, 87, 0.12), inset 0 2px 4px #ffffff, inset 0 -3px 5px rgba(46, 139, 87, 0.12);
-}
-
-.badge-pink {
-    background: #FFF0F4;
-    color: #C94277;
-    border: 2px solid #FFD0E2;
-    box-shadow: 0 10px 20px rgba(201, 66, 119, 0.12), inset 0 2px 4px #ffffff, inset 0 -3px 5px rgba(201, 66, 119, 0.12);
-}
-
-.badge-yellow {
-    background: #FEF9E7;
-    color: #B58500;
-    border: 2px solid #FDF0B8;
-    box-shadow: 0 10px 20px rgba(181, 133, 0, 0.12), inset 0 2px 4px #ffffff, inset 0 -3px 5px rgba(181, 133, 0, 0.12);
-}
-
-.badge-purple {
-    background: #F3EDFF;
-    color: #6C4AB6;
-    border: 2px solid #E0D3FF;
-    box-shadow: 0 10px 20px rgba(108, 74, 182, 0.12), inset 0 2px 4px #ffffff, inset 0 -3px 5px rgba(108, 74, 182, 0.12);
-}
-
-/* عنوان الاسم الرئيسي */
-/* عنوان الاسم الرئيسي */
-.about-title {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 1.35;
-    color: var(--ink);
-    margin-bottom: 14px;
-}
-
-/* فقرة المقدمة بعد الاسم */
-.about-intro {
-    font-size: 1.1rem;
-    font-weight: 300;
-    line-height: 1.85;
-    margin-bottom: 26px;
-    color: var(--ink);
-}
-
-/* عنوان "حيث يلتقي المنطق بالخيال" */
-.about-heading {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 1.35;
-    color: var(--ink);
-    margin-bottom: 14px;
-}
-
-/* فقرة المقدمة بعد الاسم */
-.about-intro {
-    font-size: 1.1rem;
-    font-weight: 300;
-    line-height: 1.85;
-    margin-bottom: 26px;
-    color: var(--ink);
-}
-
-/* عنوان "حيث يلتقي المنطق بالخيال" */
-.about-heading {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(1.6rem, 2.8vw, 2.1rem);
-    line-height: 1.35;
-    color: var(--ink);
-    margin-bottom: 14px;
 }

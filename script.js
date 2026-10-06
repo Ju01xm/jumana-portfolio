@@ -1,48 +1,103 @@
 // =========================================
-// 1. تغيير اللغة (ويتذكر اختيارك بين الصفحات)
+// 1. تغيير اللغة (Language Toggle)
 // =========================================
 const langBtn = document.getElementById('lang-btn');
 const html = document.documentElement;
 
-function setLang(lang) {
-    html.setAttribute('lang', lang);
-    html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-    if (langBtn) langBtn.textContent = lang === 'ar' ? 'English' : 'عربي';
-    document.querySelectorAll('[data-en]').forEach(el => {
-        const text = el.getAttribute(`data-${lang}`);
-        if (text !== null) el.innerHTML = text;
-    });
-    try { localStorage.setItem('lang', lang); } catch (e) {}
-}
-
-let saved = null;
-try { saved = localStorage.getItem('lang'); } catch (e) {}
-if (saved === 'en') setLang('en');
-
 if (langBtn) {
     langBtn.addEventListener('click', () => {
-        setLang(html.getAttribute('lang') === 'en' ? 'ar' : 'en');
+        const currentLang = html.getAttribute('lang');
+        const newLang = currentLang === 'en' ? 'ar' : 'en';
+
+        // تغيير السمة والاتجاه
+        html.setAttribute('lang', newLang);
+        html.setAttribute('dir', newLang === 'ar' ? 'rtl' : 'ltr');
+
+        // تغيير نص الزر
+        langBtn.textContent = newLang === 'ar' ? 'English' : 'عربي';
+
+        // تغيير النصوص
+        document.querySelectorAll('[data-en]').forEach(el => {
+            el.innerHTML = el.getAttribute(`data-${newLang}`);
+        });
     });
 }
 
 // =========================================
-// 2. أسهم المشاريع (بدل السكرول التلقائي)
+// 2. حركة السكرول التلقائي (Auto Scroll)
 // =========================================
-const track = document.querySelector('.projects-grid');
-const prevBtn = document.getElementById('prev');
-const nextBtn = document.getElementById('next');
+const scrollContainer = document.querySelector('.projects-grid');
 
-if (track && prevBtn && nextBtn) {
-    const step = () => {
-        const card = track.querySelector('.project-card');
-        return (card ? card.offsetWidth : 300) + 24;
-    };
-    // scrollBy موجب = يمين، سالب = يسار (في RTL "التالي" يكون لليسار)
-    const move = (forward) => {
-        const rtl = html.getAttribute('dir') === 'rtl';
-        const dir = (forward ? 1 : -1) * (rtl ? -1 : 1);
-        track.scrollBy({ left: dir * step(), behavior: 'smooth' });
-    };
-    nextBtn.addEventListener('click', () => move(true));
-    prevBtn.addEventListener('click', () => move(false));
+if (scrollContainer) {
+    
+    function autoScroll() {
+        // التحقق من اتجاه الصفحة (عربي أم إنجليزي)
+        const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+        // إذا عربي، الحركة تكون بالسالب (للخلف)، وإذا إنجليزي بالموجب
+        const speed = isRTL ? -1 : 1; 
+
+        // التوقف إذا كان الماوس فوق البطاقات أو عند السحب اليدوي
+        if (scrollContainer.matches(':hover') || isDown) {
+            requestAnimationFrame(autoScroll);
+            return;
+        }
+
+        // تطبيق الحركة
+        scrollContainer.scrollLeft += speed;
+
+        // منطق التكرار (Loop) للعودة للبداية
+        if (!isRTL) {
+            // منطق الإنجليزي (LTR)
+            if (scrollContainer.scrollLeft >= (scrollContainer.scrollWidth - scrollContainer.clientWidth - 1)) {
+                scrollContainer.scrollLeft = 0;
+            }
+        } else {
+            // منطق العربي (RTL) - المتصفحات تختلف في حساب السالب
+            // في أغلب المتصفحات: scrollLeft يبدأ من 0 وينزل للسالب
+            // أو يبدأ من رقم سالب كبير ويزيد للصفر
+            const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+            
+            // تحقق بسيط: إذا وصلنا للحد الأقصى (بالسالب أو المطلق)
+            if (Math.abs(scrollContainer.scrollLeft) >= maxScroll - 1) {
+                scrollContainer.scrollLeft = 0;
+            }
+        }
+        
+        requestAnimationFrame(autoScroll);
+    }
+
+    // تشغيل الحركة
+    autoScroll();
+
+    // =========================================
+    // 3. السحب بالماوس (Drag to Scroll)
+    // =========================================
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    scrollContainer.addEventListener('mousedown', (e) => {
+        isDown = true;
+        scrollContainer.style.cursor = 'grabbing';
+        startX = e.pageX - scrollContainer.offsetLeft;
+        scrollLeft = scrollContainer.scrollLeft;
+    });
+
+    scrollContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+        scrollContainer.style.cursor = 'grab';
+    });
+
+    scrollContainer.addEventListener('mouseup', () => {
+        isDown = false;
+        scrollContainer.style.cursor = 'grab';
+    });
+
+    scrollContainer.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - scrollContainer.offsetLeft;
+        const walk = (x - startX) * 2; // سرعة السحب
+        scrollContainer.scrollLeft = scrollLeft - walk;
+    });
 }

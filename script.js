@@ -26,7 +26,7 @@ if (langBtn) {
 }
 
 // =========================================
-// 2. أسهم المشاريع (بدل السكرول التلقائي)
+// 2. أسهم المشاريع (إن وجدت في صفحات المشاريع)
 // =========================================
 const track = document.querySelector('.projects-grid');
 const prevBtn = document.getElementById('prev');
@@ -37,7 +37,6 @@ if (track && prevBtn && nextBtn) {
         const card = track.querySelector('.project-card');
         return (card ? card.offsetWidth : 300) + 24;
     };
-    // scrollBy موجب = يمين، سالب = يسار (في RTL "التالي" يكون لليسار)
     const move = (forward) => {
         const rtl = html.getAttribute('dir') === 'rtl';
         const dir = (forward ? 1 : -1) * (rtl ? -1 : 1);
@@ -47,17 +46,12 @@ if (track && prevBtn && nextBtn) {
     prevBtn.addEventListener('click', () => move(false));
 }
 
-
 // =========================================
-// 3. شريط الشاشات: نكرر الصور لتدور بدون فراغ
+// 3. تفعيل فتح وإغلاق البادج باللمس على الجوال
 // =========================================
-const screensTrack = document.querySelector('.screens-track');
-if (screensTrack) {
-    [...screensTrack.children].forEach(img => {
-        const clone = img.cloneNode(true);
-        clone.alt = '';
-        clone.setAttribute('aria-hidden', 'true');
-        screensTrack.appendChild(clone);
+const skillsStack = document.querySelector('.skills-stack');
+if (skillsStack) {
+    skillsStack.addEventListener('click', () => {
+        skillsStack.classList.toggle('is-open');
     });
 }
-

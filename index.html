@@ -5,59 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>جمانة محمد | UI/UX Designer</title>
+
+    <!-- التحميل المسبق لخطوط ثمانية لمنع وميض الخطوط البديلة FOUT -->
+    <link rel="preload" href="font/thmanyahserifdisplay-Regular.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="font/thmanyahserifdisplay-Bold.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="font/thmanyahsans-Regular.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="font/thmanyahsans-Bold.otf" as="font" type="font/otf" crossorigin>
+
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=Lora:wght@400;600&family=Rakkas&display=swap"
         rel="stylesheet">
     
     <style>
-        /* ===== خطوط ثمانية ===== */
+        /* ===== خطوط ثمانية - مع ضبط font-display: block لمنع الخط المؤقت ===== */
         @font-face {
             font-family: 'Thmanyah Serif Display';
             src: url('font/thmanyahserifdisplay-Regular.otf') format('opentype');
             font-weight: 400;
-            font-display: swap;
+            font-display: block;
         }
 
         @font-face {
             font-family: 'Thmanyah Serif Display';
             src: url('font/thmanyahserifdisplay-Medium.otf') format('opentype');
             font-weight: 500;
-            font-display: swap;
+            font-display: block;
         }
 
         @font-face {
             font-family: 'Thmanyah Serif Display';
             src: url('font/thmanyahserifdisplay-Bold.otf') format('opentype');
             font-weight: 700;
-            font-display: swap;
+            font-display: block;
         }
 
         @font-face {
             font-family: 'Thmanyah Sans';
             src: url('font/thmanyahsans-Light.otf') format('opentype');
             font-weight: 300;
-            font-display: swap;
+            font-display: block;
         }
 
         @font-face {
             font-family: 'Thmanyah Sans';
             src: url('font/thmanyahsans-Regular.otf') format('opentype');
             font-weight: 400;
-            font-display: swap;
+            font-display: block;
         }
 
         @font-face {
             font-family: 'Thmanyah Sans';
             src: url('font/thmanyahsans-Medium.otf') format('opentype');
             font-weight: 500;
-            font-display: swap;
+            font-display: block;
         }
 
         @font-face {
             font-family: 'Thmanyah Sans';
             src: url('font/thmanyahsans-Bold.otf') format('opentype');
             font-weight: 700;
-            font-display: swap;
+            font-display: block;
         }
 
         /* ===== المتغيرات ===== */
@@ -707,7 +714,6 @@
                 gap: 14px;
             }
 
-            /* إخفاء الروابط الزائدة بالجوال ليبقى أنيقاً */
             nav a[href="#about"],
             nav a[href="#certs"],
             nav a[href="#contact"] {

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مشروع ثروة | جمانة</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================
+           Tharwa Project Page
+        ========================= */
+
+        :root {
+            --tharwa-green: #1F7A5A;
+            --tharwa-light: #EAF6F1;
+            --tharwa-dark: #155B43;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .meta-tag {
+            background: var(--tharwa-light);
+            color: var(--tharwa-green);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .big-image {
+            width: 100%;
+            min-height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(31, 122, 90, 0.08);
+            background: var(--tharwa-light);
+        }
+
+        .big-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .content-area {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        .content-area h2 {
+            color: #333;
+            margin-top: 45px;
+            margin-bottom: 20px;
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--tharwa-light);
+            display: inline-block;
+        }
+
+        .content-area p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Back button */
+
+        .back-nav {
+            padding: 20px 0;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #555;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--tharwa-green);
+            transform: translateX(5px);
+        }
+
+        /* Gallery */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-img {
+            width: 100%;
+            border-radius: 16px;
+            display: block;
+            transition: 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .gallery-img:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(31, 122, 90, 0.12);
+        }
+
+        /* Project highlight */
+
+        .project-highlight {
+            background: var(--tharwa-light);
+            border-radius: 20px;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-right: 4px solid var(--tharwa-green);
+        }
+
+        .project-highlight p {
+            margin: 0;
+            color: var(--tharwa-dark);
+        }
+
+        /* Responsive */
+
+        @media (max-width: 700px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .big-image {
+                min-height: 250px;
+            }
+
+            .content-area p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+        <div class="header-inner">
+
+            <div class="logo">جُــمــانــه</div>
+
+            <nav>
+                <a href="index.html"
+                    data-en="Back to Portfolio"
+                    data-ar="عودة للبورتفوليو">
+                    عودة للبورتفوليو
+                </a>
+
+                <button id="lang-btn">English</button>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- Main -->
+
+    <div class="container fade-in">
+
+        <!-- Back -->
+
+        <div class="back-nav">
+
+            <a href="index.html" class="back-link">
+
+                → 
+
+                <span
+                    data-en="Back to Home"
+                    data-ar="الرئيسية">
+                    الرئيسية
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- Project Header -->
+
+        <div class="project-header">
+
+            <h1
+                data-en="Tharwa App Redesign"
+                data-ar="إعادة تصميم تطبيق ثروة">
+                إعادة تصميم تطبيق ثروة
+            </h1>
+
+            <div class="project-meta">
+
+                <span class="meta-tag">
+                    UI/UX Design
+                </span>
+
+                <span class="meta-tag">
+                    Redesign Challenge
+                </span>
+
+                <span class="meta-tag">
+                    Figma
+                </span>
+
+                <span class="meta-tag">
+                    2026
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Cover Image -->
+
+        <div class="big-image">
+
+            <img
+                src="ضع_رابط_صورة_الغلاف_هنا"
+                alt="Tharwa App Redesign">
+
+        </div>
+
+
+        <!-- Content -->
+
+        <div class="content-area">
+
+
+            <!-- Overview -->
+
+            <h2
+                data-en="Project Overview"
+                data-ar="نظرة عامة">
+                نظرة عامة
+            </h2>
+
+            <p
+                data-en="Tharwa is an educational investment app that introduces users to the Saudi stock market through an interactive and engaging experience. The app uses a virtual portfolio, allowing users to practice investing without risking real money."
+                data-ar="ثروة هو تطبيق تعليمي يعرّف المستخدمين بالاستثمار في السوق السعودي من خلال تجربة تفاعلية تعتمد على اللعب. يتيح التطبيق للمستخدم تجربة الاستثمار باستخدام محفظة تحتوي على رصيد افتراضي، مما يساعد على التعلم دون المخاطرة بأموال حقيقية.">
+
+                ثروة هو تطبيق تعليمي يعرّف المستخدمين بالاستثمار في السوق السعودي
+                من خلال تجربة تفاعلية تعتمد على اللعب. يتيح التطبيق للمستخدم تجربة
+                الاستثمار باستخدام محفظة تحتوي على رصيد افتراضي، مما يساعد على
+                التعلم دون المخاطرة بأموال حقيقية.
+
+            </p>
+
+
+            <!-- Challenge -->
+
+            <h2
+                data-en="The Challenge"
+                data-ar="التحدي">
+                التحدي
+            </h2>
+
+            <p
+                data-en="The challenge was to redesign the existing Tharwa app and improve the overall visual experience, making the investment learning journey clearer, more engaging, and easier to navigate."
+                data-ar="كان التحدي هو إعادة تصميم تطبيق ثروة وتحسين التجربة البصرية بشكل عام، مع جعل رحلة تعلم الاستثمار أكثر وضوحًا وتفاعلًا وسهولة في التنقل.">
+
+                كان التحدي هو إعادة تصميم تطبيق ثروة وتحسين التجربة البصرية
+                بشكل عام، مع جعل رحلة تعلم الاستثمار أكثر وضوحًا وتفاعلًا
+                وسهولة في التنقل.
+
+            </p>
+
+
+            <!-- Design Direction -->
+
+            <h2
+                data-en="Design Direction"
+                data-ar="التوجه التصميمي">
+                التوجه التصميمي
+            </h2>
+
+            <p
+                data-en="The redesign focuses on creating a clean and modern interface with a green visual identity that reflects growth, investment, and financial confidence."
+                data-ar="ركزت إعادة التصميم على إنشاء واجهة عصرية وواضحة، مع اعتماد اللون الأخضر كلون أساسي يعكس النمو والاستثمار والثقة المالية.">
+
+                ركزت إعادة التصميم على إنشاء واجهة عصرية وواضحة، مع اعتماد
+                اللون الأخضر كلون أساسي يعكس النمو والاستثمار والثقة المالية.
+
+            </p>
+
+
+            <!-- Highlight -->
+
+            <div class="project-highlight">
+
+                <p
+                    data-en="The goal was not only to refresh the visual design, but also to make the investment experience easier to understand for users who are still learning."
+                    data-ar="لم يكن الهدف مجرد تحسين الشكل البصري للتطبيق، بل جعل تجربة الاستثمار أسهل للفهم، خصوصًا للمستخدمين الذين ما زالوا في مرحلة تعلم الاستثمار.">
+
+                    لم يكن الهدف مجرد تحسين الشكل البصري للتطبيق،
+                    بل جعل تجربة الاستثمار أسهل للفهم، خصوصًا للمستخدمين
+                    الذين ما زالوا في مرحلة تعلم الاستثمار.
+
+                </p>
+
+            </div>
+
+
+            <!-- Gallery -->
+
+            <h2
+                data-en="Design Gallery"
+                data-ar="معرض التصميم">
+                معرض التصميم
+            </h2>
+
+
+            <div class="gallery-grid">
+
+                <!-- الصورة 1 -->
+
+                <img
+                    src="ضع_رابط_الصورة_هنا"
+                    class="gallery-img"
+                    alt="Tharwa Screen 1">
+
+
+                <!-- الصورة 2 -->
+
+                <img
+                    src="ضع_رابط_الصورة_هنا"
+                    class="gallery-img"
+                    alt="Tharwa Screen 2">
+
+
+                <!-- الصورة 3 -->
+
+                <img
+                    src="ضع_رابط_الصورة_هنا"
+                    class="gallery-img"
+                    alt="Tharwa Screen 3">
+
+
+                <!-- الصورة 4 -->
+
+                <img
+                    src="ضع_رابط_الصورة_هنا"
+                    class="gallery-img"
+                    alt="Tharwa Screen 4">
+
+
+                <!-- الصورة 5 -->
+
+                <img
+                    src="ضع_رابط_الصورة_هنا"
+                    class="gallery-img"
+                    alt="Tharwa Screen 5">
+
+
+                <!-- الصورة 6 -->
+
+                <img
+                    src="ضع_رابط_الصورة_هنا"
+                    class="gallery-img"
+                    alt="Tharwa Screen 6">
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Jumana Portfolio.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

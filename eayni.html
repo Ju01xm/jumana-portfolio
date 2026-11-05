@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إعادة تصميم تطبيق عيني | Eayni Redesign</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --eayni-soft: #eef7f0;
+            --eayni-mid: #bfe0c8;
+            --eayni-main: #1b6b3a;
+            --eayni-dark: #12502a;
+        }
+
+        .project-header { text-align: center; margin-bottom: 40px; }
+        .project-meta { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px; }
+        .meta-tag {
+            background: var(--eayni-soft); color: var(--eayni-dark);
+            padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700;
+            border: 1px solid var(--eayni-mid);
+        }
+
+        .big-image {
+            width: 100%; min-height: 320px; border-radius: 20px; overflow: hidden; margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(18, 80, 42, 0.15);
+            display: flex; align-items: center; justify-content: center;
+            background: var(--eayni-soft);
+        }
+        .big-image img { width: 100%; height: 100%; object-fit: cover; }
+
+        .content-area { max-width: 900px; margin: 0 auto; padding-bottom: 60px; }
+        .content-area h2 {
+            color: var(--eayni-dark); margin-top: 40px; margin-bottom: 20px;
+            font-family: var(--font-heading); font-size: 1.8rem;
+            border-bottom: 2px solid var(--eayni-mid); display: inline-block;
+        }
+        .content-area p { font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 20px; }
+        .content-area ul { padding-inline-start: 22px; margin-bottom: 20px; color: #555; font-size: 1.05rem; line-height: 1.9; }
+
+        .notice {
+            background: var(--eayni-soft); border: 1px solid var(--eayni-mid);
+            border-radius: 12px; padding: 14px 18px; margin-bottom: 30px;
+            font-size: 0.95rem; color: var(--eayni-dark);
+        }
+
+        .stats-row { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 40px; }
+        .stat-box {
+            flex: 1; min-width: 130px; background: white; border: 1px solid var(--eayni-mid);
+            border-radius: 12px; padding: 20px 18px; text-align: center;
+        }
+        .stat-number { font-size: 1.9rem; font-weight: 700; color: var(--eayni-main); line-height: 1; }
+        .stat-label { font-size: 0.85rem; color: #666; margin-top: 6px; }
+
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px; margin-top: 20px; margin-bottom: 40px;
+        }
+        .feature-card {
+            background: white; border: 1px solid var(--eayni-mid); border-radius: 15px; padding: 22px;
+        }
+        .feature-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--eayni-dark); margin-bottom: 8px; font-family: var(--font-heading); }
+        .feature-card p { font-size: 0.95rem; color: #555; margin: 0; line-height: 1.6; }
+
+        /* قبل / بعد */
+        .compare { margin-top: 24px; }
+        .compare h3 { font-family: var(--font-heading); color: var(--eayni-dark); font-size: 1.2rem; margin-bottom: 12px; }
+        .compare-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 36px; }
+        .compare figure { margin: 0; text-align: center; }
+        .compare figcaption { font-size: 0.9rem; font-weight: 700; color: #666; margin-top: 8px; }
+        .compare img { width: 100%; border-radius: 15px; border: 1px solid #eee; display: block; background: var(--eayni-soft); }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 24px; }
+        .gallery-img { width: 100%; border-radius: 15px; border: 1px solid #eee; background: var(--eayni-soft); }
+
+        .tech-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; margin-bottom: 40px; }
+        .tech-pill {
+            background: var(--eayni-soft); border: 1px solid var(--eayni-mid); color: var(--eayni-dark);
+            border-radius: 20px; padding: 6px 18px; font-size: 0.9rem; font-weight: 700;
+        }
+
+        .back-nav { padding: 20px 0; }
+        .back-link { text-decoration: none; color: #555; font-weight: 700; display: inline-flex; align-items: center; gap: 5px; transition: 0.3s; }
+        .back-link:hover { color: var(--eayni-main); transform: translateX(5px); }
+        html[lang="en"] .back-link:hover { transform: translateX(-5px); }
+
+        .view-behance-btn {
+            border: 2px solid var(--eayni-main); color: var(--eayni-dark);
+            padding: 12px 35px; border-radius: 50px; font-weight: 700; transition: 0.3s;
+            text-decoration: none; display: inline-block; margin: 10px 8px 0;
+        }
+        .view-behance-btn:hover { background: var(--eayni-main); color: white; }
+
+        @media (max-width: 600px) { .compare-pair { grid-template-columns: 1fr; } }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">جُــمــانــه</div>
+            <nav>
+                <a href="index.html" data-en="Back to Portfolio" data-ar="عودة للبورتفوليو">عودة للبورتفوليو</a>
+                <button id="lang-btn">English</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container fade-in">
+
+        <div class="back-nav">
+            <a href="index.html" class="back-link">→ <span data-en="Back to Home" data-ar="الرئيسية">الرئيسية</span></a>
+        </div>
+
+        <!-- العنوان -->
+        <div class="project-header">
+            <h1 data-en="Eayni Recycling App Redesign" data-ar="إعادة تصميم تطبيق جمعية عيني لإعادة التدوير">
+                إعادة تصميم تطبيق جمعية عيني لإعادة التدوير</h1>
+            <div class="project-meta">
+                <span class="meta-tag" data-en="UI improvement project" data-ar="مشروع تحسين واجهة">مشروع تحسين واجهة</span>
+                <span class="meta-tag">UI/UX</span>
+                <span class="meta-tag">UX Research</span>
+                <span class="meta-tag">Wireframing</span>
+                <span class="meta-tag">Figma</span>
+            </div>
+        </div>
+
+        <!-- صورة الغلاف: ضعي رابط الصورة مكان "رابط-صورة-الغلاف" -->
+        <div class="big-image">
+            <img src="رابط-صورة-الغلاف" alt="Eayni Redesign Cover" onerror="this.style.display='none'">
+        </div>
+
+        <div class="content-area">
+
+            <div class="notice"
+                data-en="A project to improve the association's app interface, not officially affiliated with Eayni Recycling Association. The logo and illustrations belong to their owners."
+                data-ar="مشروع تحسين لواجهة تطبيق الجمعية، وغير مرتبط رسمياً بجمعية عيني لإعادة التدوير. الشعار والرسومات تعود لأصحابها.">
+                مشروع تحسين لواجهة تطبيق الجمعية، وغير مرتبط رسمياً بجمعية عيني لإعادة التدوير. الشعار والرسومات تعود لأصحابها.
+            </div>
+
+            <!-- أرقام (حقيقية من عملك، عدّلي إذا تغير العدد) -->
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="stat-number">13</div>
+                    <div class="stat-label" data-en="Screens analyzed" data-ar="شاشة تم تحليلها">شاشة تم تحليلها</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">16</div>
+                    <div class="stat-label" data-en="New screens designed" data-ar="شاشة جديدة صممتها">شاشة جديدة صممتها</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label" data-en="Key design decisions" data-ar="قرارات تصميم رئيسية">قرارات تصميم رئيسية</div>
+                </div>
+            </div>
+
+            <h2 data-en="Overview" data-ar="نظرة عامة">نظرة عامة</h2>
+            <p data-en="The Eayni app lets people request home pickup of donated items: clothes, appliances, paper, metals and more. After using it for a while, I found that the experience got in the way of its main goal: letting a user start a donation request quickly."
+                data-ar="تطبيق جمعية عيني يتيح للمستخدم طلب استلام تبرعات من ملابس وأجهزة وورق ومعادن وغيرها من منزله. استخدمته فترة، ولاحظت أن تجربته تعيق هدفه الأساسي: أن يبدأ المستخدم طلب تبرع بسرعة.">
+                تطبيق جمعية عيني يتيح للمستخدم طلب استلام تبرعات من ملابس وأجهزة وورق ومعادن وغيرها من منزله. استخدمته فترة،
+                ولاحظت أن تجربته تعيق هدفه الأساسي: أن يبدأ المستخدم طلب تبرع بسرعة.
+            </p>
+
+            <h2 data-en="The Problem" data-ar="المشكلة">المشكلة</h2>
+            <p data-en="After signing up and setting my location, it took me a while to find where to start a clothing donation. Reviewing the screens, I found:"
+                data-ar="بعد إنشاء حساب وتحديد الموقع، احتجت وقتاً لأعرف أين أبدأ طلب تبرع بالملابس. بتحليل الشاشات وجدت:">
+                بعد إنشاء حساب وتحديد الموقع، احتجت وقتاً لأعرف أين أبدأ طلب تبرع بالملابس. بتحليل الشاشات وجدت:
+            </p>
+            <ul>
+                <li data-en="The only entry point was an \"Order now\" button at the bottom of the home screen."
+                    data-ar="نقطة البداية الوحيدة زر «أطلب الآن» في أسفل الصفحة الرئيسية.">
+                    نقطة البداية الوحيدة زر «أطلب الآن» في أسفل الصفحة الرئيسية.</li>
+                <li data-en="Request creation was hidden inside a \"Basket\" tab, a label that fits shopping, not donating."
+                    data-ar="إنشاء الطلب مخبّأ داخل تبويب «السلة»، وهي تسمية تناسب التسوق لا التبرع.">
+                    إنشاء الطلب مخبّأ داخل تبويب «السلة»، وهي تسمية تناسب التسوق لا التبرع.</li>
+                <li data-en="A fixed yellow status bar covered content on most screens."
+                    data-ar="شريط أصفر ثابت بحالة الطلب يغطي المحتوى في معظم الشاشات.">
+                    شريط أصفر ثابت بحالة الطلب يغطي المحتوى في معظم الشاشات.</li>
+                <li data-en="The monthly goal bar was confusing: 141 tons against a 136-ton target, with no explanation."
+                    data-ar="شريط الهدف الشهري مربك: 141 طن مقابل هدف 136 طن بلا تفسير.">
+                    شريط الهدف الشهري مربك: 141 طن مقابل هدف 136 طن بلا تفسير.</li>
+                <li data-en="Pickup details (location, address, phone) were split between Account and Basket."
+                    data-ar="بيانات الاستلام (الموقع والعنوان والجوال) موزعة بين «حسابي» و«السلة».">
+                    بيانات الاستلام (الموقع والعنوان والجوال) موزعة بين «حسابي» و«السلة».</li>
+            </ul>
+
+            <h2 data-en="Goal" data-ar="الهدف">الهدف</h2>
+            <p data-en="A first-time user should be able to start a donation request from the very first screen and follow it through to pickup, in as few steps as possible."
+                data-ar="أن يستطيع أي مستخدم جديد بدء طلب تبرع من أول شاشة ومتابعته حتى الاستلام، بأقل عدد من الخطوات.">
+                أن يستطيع أي مستخدم جديد بدء طلب تبرع من أول شاشة ومتابعته حتى الاستلام، بأقل عدد من الخطوات.
+            </p>
+
+            <h2 data-en="The Solution" data-ar="الحل المقدم">الحل المقدم</h2>
+            <p data-en="I rebuilt the flow around one idea: donating should start from the first screen. The home screen now leads with a clear \"Start a donation request\" button and a grid of donation types. The \"Basket\" became \"My orders\", a name that matches what users actually do: donate and track. Item selection happens in one step with category chips and a counter per item, and all pickup details (map, address, phone, photos, summary) are gathered on one screen before sending."
+                data-ar="أعدت بناء المسار على فكرة واحدة: التبرع يجب أن يبدأ من أول شاشة. الرئيسية الآن تبدأ بزر واضح «ابدأ طلب تبرع» وشبكة بأنواع التبرع، و«السلة» صارت «طلباتي» لأنها أقرب لما يفعله المستخدم فعلاً: يتبرع ويتابع. اختيار العناصر صار بخطوة واحدة بشرائح الأنواع وعدّاد لكل عنصر، وكل بيانات الاستلام (الخريطة والعنوان والجوال والصور والملخص) اجتمعت في شاشة واحدة قبل الإرسال.">
+                أعدت بناء المسار على فكرة واحدة: التبرع يجب أن يبدأ من أول شاشة. الرئيسية الآن تبدأ بزر واضح «ابدأ طلب تبرع» وشبكة بأنواع التبرع، و«السلة» صارت «طلباتي» لأنها أقرب لما يفعله المستخدم فعلاً: يتبرع ويتابع. اختيار العناصر صار بخطوة واحدة بشرائح الأنواع وعدّاد لكل عنصر، وكل بيانات الاستلام (الخريطة والعنوان والجوال والصور والملخص) اجتمعت في شاشة واحدة قبل الإرسال.
+            </p>
+            <p data-en="Order status is now a clear step-by-step tracker (received, under review, courier on the way, picked up) instead of the fixed yellow bar, with options to edit or cancel. I also added the missing supporting screens: submission confirmation, a location-permission explainer, saved addresses, notifications, and password recovery by code, and unified the type, colors and buttons across every screen."
+                data-ar="وحالة الطلب صارت مراحل واضحة (تم الاستلام، قيد المراجعة، المندوب في الطريق، تم الاستلام) بدل الشريط الأصفر الثابت، مع خيارات التعديل والإلغاء. وأضفت الشاشات المكمّلة الناقصة: تأكيد الإرسال، شرح إذن الموقع، العناوين المحفوظة، الإشعارات، واستعادة كلمة المرور بالرمز، ووحّدت الخطوط والألوان والأزرار في كل الشاشات.">
+                وحالة الطلب صارت مراحل واضحة (تم الاستلام، قيد المراجعة، المندوب في الطريق، تم الاستلام) بدل الشريط الأصفر الثابت، مع خيارات التعديل والإلغاء. وأضفت الشاشات المكمّلة الناقصة: تأكيد الإرسال، شرح إذن الموقع، العناوين المحفوظة، الإشعارات، واستعادة كلمة المرور بالرمز، ووحّدت الخطوط والألوان والأزرار في كل الشاشات.
+            </p>
+
+            <!-- قبل / بعد: ضعي روابط الصور مكان الكلمات العربية -->
+            <h2 data-en="Before & After" data-ar="قبل وبعد">قبل وبعد</h2>
+
+            <div class="compare">
+                <h3 data-en="Home" data-ar="الرئيسية">الرئيسية</h3>
+                <div class="compare-pair">
+                    <figure><img src="رابط-الرئيسية-قبل" alt="الرئيسية قبل"><figcaption data-en="Before" data-ar="قبل">قبل</figcaption></figure>
+                    <figure><img src="رابط-الرئيسية-بعد" alt="الرئيسية بعد"><figcaption data-en="After" data-ar="بعد">بعد</figcaption></figure>
+                </div>
+                <h3 data-en="Select items" data-ar="اختيار العناصر">اختيار العناصر</h3>
+                <div class="compare-pair">
+                    <figure><img src="رابط-العناصر-قبل" alt="العناصر قبل"><figcaption data-en="Before" data-ar="قبل">قبل</figcaption></figure>
+                    <figure><img src="رابط-العناصر-بعد" alt="العناصر بعد"><figcaption data-en="After" data-ar="بعد">بعد</figcaption></figure>
+                </div>
+                <h3 data-en="Order tracking" data-ar="تتبع الطلب">تتبع الطلب</h3>
+                <div class="compare-pair">
+                    <figure><img src="رابط-التتبع-قبل" alt="التتبع قبل"><figcaption data-en="Before" data-ar="قبل">قبل</figcaption></figure>
+                    <figure><img src="رابط-التتبع-بعد" alt="التتبع بعد"><figcaption data-en="After" data-ar="بعد">بعد</figcaption></figure>
+                </div>
+            </div>
+
+            <!-- الوايرفريم -->
+            <h2 data-en="Wireframes" data-ar="الوايرفريم">الوايرفريم</h2>
+            <p data-en="I started with low-fidelity wireframes to settle the flow before any visual detail."
+                data-ar="بدأت بوايرفريم منخفض الدقة لتثبيت المسار قبل أي تفاصيل بصرية.">
+                بدأت بوايرفريم منخفض الدقة لتثبيت المسار قبل أي تفاصيل بصرية.
+            </p>
+            <div class="gallery-grid">
+                <img src="رابط-وايرفريم-1" class="gallery-img" alt="وايرفريم 1">
+                <img src="رابط-وايرفريم-2" class="gallery-img" alt="وايرفريم 2">
+                <img src="رابط-وايرفريم-3" class="gallery-img" alt="وايرفريم 3">
+                <img src="رابط-وايرفريم-4" class="gallery-img" alt="وايرفريم 4">
+            </div>
+
+            <!-- كامل الواجهات (16 شاشة): أضيفي صورة لكل شاشة، وانسخي سطر img لإضافة المزيد -->
+            <h2 data-en="All Screens" data-ar="كامل واجهات التطبيق">كامل واجهات التطبيق</h2>
+            <div class="gallery-grid">
+                <img src="رابط-شاشة-1" class="gallery-img" alt="شاشة 1">
+                <img src="رابط-شاشة-2" class="gallery-img" alt="شاشة 2">
+                <img src="رابط-شاشة-3" class="gallery-img" alt="شاشة 3">
+                <img src="رابط-شاشة-4" class="gallery-img" alt="شاشة 4">
+                <img src="رابط-شاشة-5" class="gallery-img" alt="شاشة 5">
+                <img src="رابط-شاشة-6" class="gallery-img" alt="شاشة 6">
+                <img src="رابط-شاشة-7" class="gallery-img" alt="شاشة 7">
+                <img src="رابط-شاشة-8" class="gallery-img" alt="شاشة 8">
+                <img src="رابط-شاشة-9" class="gallery-img" alt="شاشة 9">
+                <img src="رابط-شاشة-10" class="gallery-img" alt="شاشة 10">
+                <img src="رابط-شاشة-11" class="gallery-img" alt="شاشة 11">
+                <img src="رابط-شاشة-12" class="gallery-img" alt="شاشة 12">
+                <img src="رابط-شاشة-13" class="gallery-img" alt="شاشة 13">
+                <img src="رابط-شاشة-14" class="gallery-img" alt="شاشة 14">
+                <img src="رابط-شاشة-15" class="gallery-img" alt="شاشة 15">
+                <img src="رابط-شاشة-16" class="gallery-img" alt="شاشة 16">
+            </div>
+
+            <h2 data-en="Tools" data-ar="الأدوات">الأدوات</h2>
+            <div class="tech-grid">
+                <span class="tech-pill">Figma</span>
+                <span class="tech-pill">Wireframing</span>
+                <span class="tech-pill">Prototyping</span>
+                <span class="tech-pill">Heuristic Review</span>
+            </div>
+
+            <h2 data-en="Learnings & Next Steps" data-ar="ما تعلمته والخطوة التالية">ما تعلمته والخطوة التالية</h2>
+            <ul>
+                <li data-en="The most important button should be the first thing the eye sees, not the last."
+                    data-ar="الزر الأهم يجب أن يكون أول ما تراه العين، لا آخر ما تصل إليه.">
+                    الزر الأهم يجب أن يكون أول ما تراه العين، لا آخر ما تصل إليه.</li>
+                <li data-en="Labels shape understanding as much as color does."
+                    data-ar="التسميات تؤثر على فهم المستخدم بقدر الألوان.">
+                    التسميات تؤثر على فهم المستخدم بقدر الألوان.</li>
+                <li data-en="Next: test the prototype with real users and measure the time to start a request."
+                    data-ar="الخطوة التالية: اختبار النموذج مع مستخدمين وقياس الزمن اللازم لبدء الطلب.">
+                    الخطوة التالية: اختبار النموذج مع مستخدمين وقياس الزمن اللازم لبدء الطلب.</li>
+            </ul>
+
+            <!-- الأزرار: ضعي الروابط الحقيقية -->
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="رابط-البروتوتايب" target="_blank" class="view-behance-btn">
+                    <span data-en="View Prototype" data-ar="شاهد البروتوتايب">شاهد البروتوتايب</span>
+                </a>
+                <a href="https://www.behance.net/gallery/258066825/_" target="_blank" class="view-behance-btn">
+                    <span data-en="View on Behance" data-ar="شاهد على Behance">شاهد على Behance</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 جمانة - Jumana Portfolio.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -56,37 +56,27 @@
         .stat-number { font-size: 1.9rem; font-weight: 700; color: var(--eayni-main); line-height: 1; }
         .stat-label { font-size: 0.85rem; color: #666; margin-top: 6px; }
 
-        .features-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px; margin-top: 20px; margin-bottom: 40px;
+        /* ترتيب الصور تحت بعض بحجم مناسب */
+        .screens-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* المسافة بين كل صورة واللي تحتها */
+            align-items: center; /* توسيط الصور */
+            margin-top: 30px;
         }
-        .feature-card {
-            background: white; border: 1px solid var(--eayni-mid); border-radius: 15px; padding: 22px;
-        }
-        .feature-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--eayni-dark); margin-bottom: 8px; font-family: var(--font-heading); }
-        .feature-card p { font-size: 0.95rem; color: #555; margin: 0; line-height: 1.6; }
-
-        /* قبل / بعد */
-        .compare { margin-top: 24px; }
-        .compare h3 { font-family: var(--font-heading); color: var(--eayni-dark); font-size: 1.2rem; margin-bottom: 12px; }
-        .compare-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 36px; }
-        .compare figure { margin: 0; text-align: center; }
-        .compare figcaption { font-size: 0.9rem; font-weight: 700; color: #666; margin-top: 8px; }
-        .compare img { width: 100%; border-radius: 15px; border: 1px solid #eee; display: block; background: var(--eayni-soft); }
-
-        /* معرض الصور الكبير (تم التعديل هنا) */
-        .full-width-gallery { margin-top: 24px; width: 100%; }
-        .full-width-gallery img { 
-            width: 100%; 
-            height: auto; 
-            border-radius: 15px; 
-            border: 1px solid #eee; 
-            background: var(--eayni-soft); 
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        
+        .screens-stack img {
+            width: 100%; /* تاخذ العرض كامل في الجوال */
+            max-width: 800px; /* أقصى عرض للصورة عشان تكون واضحة وممتازة في اللابتوب */
+            height: auto;
+            border-radius: 16px;
+            border: 1px solid #eee;
+            background: var(--eayni-soft);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
             display: block;
         }
 
-        .tech-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; margin-bottom: 40px; }
+        .tech-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 40px; margin-bottom: 40px; }
         .tech-pill {
             background: var(--eayni-soft); border: 1px solid var(--eayni-mid); color: var(--eayni-dark);
             border-radius: 20px; padding: 6px 18px; font-size: 0.9rem; font-weight: 700;
@@ -103,8 +93,6 @@
             text-decoration: none; display: inline-block; margin: 10px 8px 0;
         }
         .view-behance-btn:hover { background: var(--eayni-main); color: white; }
-
-        @media (max-width: 600px) { .compare-pair { grid-template-columns: 1fr; } }
     </style>
 </head>
 
@@ -215,11 +203,13 @@
             </p>
 
 
-            <!-- تم التعديل هنا لتكون صورة واحدة كبيرة بعرض الصفحة -->
+            <!-- ترتيب الصور الجديدة بشكل عمودي (تحت بعض) -->
             <h2 data-en="All Screens" data-ar="كامل واجهات التطبيق">كامل واجهات التطبيق</h2>
-            <div class="full-width-gallery">
-                <!-- ضعي رابط صورتك المجمعة التي تحتوي على كل الشاشات هنا -->
-                <img src="رابط_الصورة_المجمعة_هنا" alt="كامل واجهات التطبيق">
+            <div class="screens-stack">
+                <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJF1rDiafE7bPmMGZdgsTtRSqOQwAefD5V3I1x" alt="شاشة 1">
+                <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJjcsdhRZ7lb4sBZxAzYTXi1qhSonycK2OmetL" alt="شاشة 2">
+                <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJ2jMfv1Ot5LGRVyjs7mvMdWJ3N9qhUz6nFSAf" alt="شاشة 3">
+                <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJc8ukFiCndRt2aZoIPNXw9hxDJrUSsy48BQ5q" alt="شاشة 4">
             </div>
 
             <h2 data-en="Tools" data-ar="الأدوات">الأدوات</h2>

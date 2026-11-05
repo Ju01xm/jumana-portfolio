@@ -74,8 +74,17 @@
         .compare figcaption { font-size: 0.9rem; font-weight: 700; color: #666; margin-top: 8px; }
         .compare img { width: 100%; border-radius: 15px; border: 1px solid #eee; display: block; background: var(--eayni-soft); }
 
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 24px; }
-        .gallery-img { width: 100%; border-radius: 15px; border: 1px solid #eee; background: var(--eayni-soft); }
+        /* معرض الصور الكبير (تم التعديل هنا) */
+        .full-width-gallery { margin-top: 24px; width: 100%; }
+        .full-width-gallery img { 
+            width: 100%; 
+            height: auto; 
+            border-radius: 15px; 
+            border: 1px solid #eee; 
+            background: var(--eayni-soft); 
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            display: block;
+        }
 
         .tech-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; margin-bottom: 40px; }
         .tech-pill {
@@ -130,7 +139,7 @@
             </div>
         </div>
 
-        <!-- صورة الغلاف: ضعي رابط الصورة مكان "رابط-صورة-الغلاف" -->
+        <!-- صورة الغلاف -->
         <div class="big-image">
             <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJxuLS1OF4Pkumw286IZJanS0WXMDN9fyFzdLr" alt="Eayni Redesign Cover" onerror="this.style.display='none'">
         </div>
@@ -143,7 +152,7 @@
                 مشروع تحسين لواجهة تطبيق الجمعية، وغير مرتبط رسمياً بجمعية عيني لإعادة التدوير. الشعار والرسومات تعود لأصحابها.
             </div>
 
-            <!-- أرقام (حقيقية من عملك، عدّلي إذا تغير العدد) -->
+            <!-- أرقام -->
             <div class="stats-row">
                 <div class="stat-box">
                     <div class="stat-number">13</div>
@@ -206,13 +215,11 @@
             </p>
 
 
-            <!-- كامل الواجهات (16 شاشة): أضيفي صورة لكل شاشة، وانسخي سطر img لإضافة المزيد -->
+            <!-- تم التعديل هنا لتكون صورة واحدة كبيرة بعرض الصفحة -->
             <h2 data-en="All Screens" data-ar="كامل واجهات التطبيق">كامل واجهات التطبيق</h2>
-            <div class="gallery-grid">
-                <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJF1rDiafE7bPmMGZdgsTtRSqOQwAefD5V3I1x" class="gallery-img" alt="شاشة 1">
-                <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJjcsdhRZ7lb4sBZxAzYTXi1qhSonycK2OmetL" class="gallery-img" alt="شاشة 2">
-                <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJ2jMfv1Ot5LGRVyjs7mvMdWJ3N9qhUz6nFSAf" class="gallery-img" alt="شاشة 3">
-                <img src="https://ijn12hoh65.ufs.sh/f/gCdr8Ko1IyUJc8ukFiCndRt2aZoIPNXw9hxDJrUSsy48BQ5q" class="gallery-img" alt="شاشة 4">
+            <div class="full-width-gallery">
+                <!-- ضعي رابط صورتك المجمعة التي تحتوي على كل الشاشات هنا -->
+                <img src="رابط_الصورة_المجمعة_هنا" alt="كامل واجهات التطبيق">
             </div>
 
             <h2 data-en="Tools" data-ar="الأدوات">الأدوات</h2>
@@ -223,7 +230,7 @@
                 <span class="tech-pill">Heuristic Review</span>
             </div>
 
-            <!-- الأزرار: ضعي الروابط الحقيقية -->
+            <!-- الأزرار -->
             <div style="text-align: center; margin-top: 50px;">
                 <a href="https://www.behance.net/gallery/258066825/_" target="_blank" class="view-behance-btn">
                     <span data-en="View on Behance" data-ar="شاهد على Behance">شاهد على Behance</span>
